@@ -1,0 +1,85 @@
+// Body reset
+
+html {
+  font-size: inherit;
+}
+
+body {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  background-color: inherit;
+}
+
+
+// Links
+a {
+  color: inherit;
+  text-decoration: inherit;
+
+  &:hover,
+  &:focus {
+    color: inherit;
+    text-decoration: inherit;
+  }
+
+  &:focus {
+    .tab-focus();
+  }
+}
+
+
+// Horizontal rules
+hr {
+  margin-top: inherit;
+  margin-bottom: inherit;
+  border: inherit;
+  border-top: inherit;
+}
+
+
+// Responsive ifram fix
+.embed-youtube, .embed-vimeo, .googlemaps, .videoBox_center {
+  clear: both;
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  margin-bottom: 15px;
+  position: relative;
+  height: 0 !important;
+  width: 100% !important;
+  iframe, object {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+  }
+}
+
+
+// Global Padding and Margins
+.top15 { 
+  margin-top:15px!important;
+}
+.bottom15 { 
+  margin-bottom:15px!important;
+}
+.left15 { 
+  margin-left:15px!important;
+}
+.right15 { 
+  margin-right:15px!important;
+}
+.padtop { 
+  padding-top:15px!important;
+}
+.padbottom { 
+  padding-bottom:15px!important;
+}
+.padleft { 
+  padding-left:15px!important;
+}
+.padright { 
+  padding-right:15px!important;
+}
