@@ -8,7 +8,7 @@
 
         <?php // Header Logo ?>
         <?php if ( get_header_image() != '' ) : ?>
-            <div class="col-md-4 dmbs-header-img text-center">
+            <div class="col-md-4 dmbs-header-img">
                 <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><img class="img-responsive header-logo" src="<?php header_image(); ?>" alt="<?php bloginfo( 'name' ); ?> logo" /></a>
             </div>
         <?php endif; ?>

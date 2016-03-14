@@ -26,11 +26,9 @@ load_theme_textdomain( 'devdmbootstrap3', get_template_directory() . '/languages
 
     $defaults = array(
         'default-image'          => get_template_directory_uri() . '/img/makerfaire.gif',
-        'width'                  => 300,
-        'height'                 => 100,
         'flex-height'            => true,
         'flex-width'             => true,
-        'default-text-color'     => '000',
+        'default-text-color'     => '111',
         'header-text'            => true,
         'uploads'                => true,
         'wp-head-callback'       => '',
