@@ -3,7 +3,7 @@
   margin-bottom: 10px;
 
   .dmbs-header-img {
-    padding-left: 0;
+    float: left;
     .header-logo {
       max-width: 300px;
       max-height: 100px;
@@ -11,6 +11,32 @@
   }
 
   .dmbs-header-text {
-    text-align: right;
+    float: left;
+    padding: 0 30px;
+  }
+
+  #home-carousel {
+    .carousel-caption {
+      pointer-events: none;
+      h1 {
+
+      }
+      h3 {
+
+      }
+    }
+  }
+}
+
+
+// MENU
+.dmbs-top-menu {
+  .navbar-inverse {
+    background-color: rgba(0,173,239,0.9);
+  }
+  .navbar-inverse .navbar-nav>li>a:hover, 
+  .navbar-inverse .navbar-nav>li>a:focus {
+    color: #ffffff;
+    background-color: #039AD4;
   }
 }

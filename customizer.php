@@ -9,11 +9,11 @@ function home_img_slider( $wp_customize ) {
         'description' => 'This section contains all settings for the home page image carousel',
         'priority' => 103,
     ));
-// SLIDER 1
+    // SLIDER 1
     $wp_customize->add_setting( 'slide_img_upload_1' );
     $wp_customize->add_control( new WP_Customize_Image_Control(
         $wp_customize, 'slide_img_upload_1', array(
-            'label'       => __( 'Slide 1', 'theme_slug' ),
+            'label'       => __( 'Slide 1' ),
             'section'     => 'home_img_carousel',
             'settings'    => 'slide_img_upload_1',
             'description' => 'Upload your first slider image here.'
@@ -28,7 +28,7 @@ function home_img_slider( $wp_customize ) {
     }
     $wp_customize->add_control( 'slide_title_1', array(
         'type'    => 'text',
-        'label'   => __( 'Headline Text Here:', 'theme_slug' ),
+        'label'   => __( 'Headline Text Here:' ),
         'section' => 'home_img_carousel'
     ));
     $wp_customize->add_setting( 'slide_text_1', array(
@@ -39,7 +39,7 @@ function home_img_slider( $wp_customize ) {
         return wp_kses_post( force_balance_tags( $input ) );
     } 
     $wp_customize->add_control( 'slide_text_1', array(
-        'label'    => __( 'Descriptive Text Here:', 'theme_slug' ),
+        'label'    => __( 'Descriptive Text Here:' ),
         'section'  => 'home_img_carousel',
         'settings' => 'slide_text_1',
         'type'     => 'text'
@@ -52,32 +52,29 @@ function home_img_slider( $wp_customize ) {
         return wp_kses_post( force_balance_tags( $input ) );
     }  
     $wp_customize->add_control( 'slide_1_link', array(
-        'label'    => __( 'Slide 1 URL Here:', 'theme_slug' ),
+        'label'    => __( 'Slide 1 URL Here:' ),
         'section'  => 'home_img_carousel',
         'settings' => 'slide_1_link',
         'type'     => 'text',
     ));
 
-// SLIDER 2
-    $wp_customize->add_setting( 'slide_img_upload_2_radio' );
-$wp_customize->add_control(
-    'slide_img_upload_2_radio', 
-    array(
-        'label'    => __( 'Show or Hide Slide 2', 'mytheme' ),
-        'section'  => 'home_img_carousel',
-        'settings' => 'slide_img_upload_2_radio',
-        'type'     => 'radio',
-        'choices'  => array(
-            'left'  => 'Show',
-            'right' => 'Hide',
-        ),
-    )
-);
-
+    // SLIDER 2
+    $wp_customize->add_setting( 'slide_img_upload_2_checkbox', array(
+        'default'        => false,
+    ));
+    $wp_customize->add_control(
+        'slide_img_upload_2_checkbox', 
+        array(
+            'label'    => __( 'Show or Hide Slide 2' ),
+            'section'  => 'home_img_carousel',
+            'settings' => 'slide_img_upload_2_checkbox',
+            'type'     => 'checkbox',
+        )
+    );
     $wp_customize->add_setting( 'slide_img_upload_2' );
     $wp_customize->add_control( new WP_Customize_Image_Control(
         $wp_customize, 'slide_img_upload_2', array(
-            'label'       => __( 'Slide 2', 'theme_slug' ),
+            'label'       => __( 'Slide 2' ),
             'section'     => 'home_img_carousel',
             'settings'    => 'slide_img_upload_2',
             'description' => 'Upload your second slider image here.'
@@ -92,7 +89,7 @@ $wp_customize->add_control(
     }
     $wp_customize->add_control( 'slide_title_2', array(
         'type'    => 'text',
-        'label'   => __( 'Headline Text Here:', 'theme_slug' ),
+        'label'   => __( 'Headline Text Here:' ),
         'section' => 'home_img_carousel'
     ));
     $wp_customize->add_setting( 'slide_text_2', array(
@@ -103,7 +100,7 @@ $wp_customize->add_control(
         return wp_kses_post( force_balance_tags( $input ) );
     } 
     $wp_customize->add_control( 'slide_text_2', array(
-        'label'    => __( 'Descriptive Text Here:', 'theme_slug' ),
+        'label'    => __( 'Descriptive Text Here:' ),
         'section'  => 'home_img_carousel',
         'settings' => 'slide_text_2',
         'type'     => 'text'
@@ -116,17 +113,29 @@ $wp_customize->add_control(
         return wp_kses_post( force_balance_tags( $input ) );
     }  
     $wp_customize->add_control( 'slide_2_link', array(
-        'label'    => __( 'Slide 2 URL Here:', 'theme_slug' ),
+        'label'    => __( 'Slide 2 URL Here:' ),
         'section'  => 'home_img_carousel',
         'settings' => 'slide_2_link',
         'type'     => 'text',
     ));
 
 // SLIDER 3
+    $wp_customize->add_setting( 'slide_img_upload_3_checkbox', array(
+        'default'        => false,
+    ));
+    $wp_customize->add_control(
+        'slide_img_upload_3_checkbox', 
+        array(
+            'label'    => __( 'Show or Hide Slide 3' ),
+            'section'  => 'home_img_carousel',
+            'settings' => 'slide_img_upload_3_checkbox',
+            'type'     => 'checkbox',
+        )
+    );
     $wp_customize->add_setting( 'slide_img_upload_3' );
     $wp_customize->add_control( new WP_Customize_Image_Control(
         $wp_customize, 'slide_img_upload_3', array(
-            'label'       => __( 'Slide 3', 'theme_slug' ),
+            'label'       => __( 'Slide 3' ),
             'section'     => 'home_img_carousel',
             'settings'    => 'slide_img_upload_3',
             'description' => 'Upload your third slider image here.'
@@ -141,7 +150,7 @@ $wp_customize->add_control(
     }
     $wp_customize->add_control( 'slide_title_3', array(
         'type'    => 'text',
-        'label'   => __( 'Headline Text Here:', 'theme_slug' ),
+        'label'   => __( 'Headline Text Here:' ),
         'section' => 'home_img_carousel'
     ));
     $wp_customize->add_setting( 'slide_text_3', array(
@@ -152,7 +161,7 @@ $wp_customize->add_control(
         return wp_kses_post( force_balance_tags( $input ) );
     } 
     $wp_customize->add_control( 'slide_text_3', array(
-        'label'    => __( 'Descriptive Text Here:', 'theme_slug' ),
+        'label'    => __( 'Descriptive Text Here:' ),
         'section'  => 'home_img_carousel',
         'settings' => 'slide_text_3',
         'type'     => 'text'
@@ -165,7 +174,7 @@ $wp_customize->add_control(
         return wp_kses_post( force_balance_tags( $input ) );
     }  
     $wp_customize->add_control( 'slide_3_link', array(
-        'label'    => __( 'Slide 3 URL Here:', 'theme_slug' ),
+        'label'    => __( 'Slide 3 URL Here:' ),
         'section'  => 'home_img_carousel',
         'settings' => 'slide_3_link',
         'type'     => 'text',
