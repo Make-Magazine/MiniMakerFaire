@@ -182,4 +182,5 @@ function home_img_slider( $wp_customize ) {
 }
 add_action( 'customize_register', 'home_img_slider' );
 
+
 ?>
