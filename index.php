@@ -7,7 +7,7 @@
 <!-- start content container -->
 <div class="row dmbs-content">
 
-    <div class="col-md-<?php devdmbootstrap3_main_content_width(); ?> dmbs-main">
+    <div class="col-md-9 dmbs-main">
 
         <?php
 

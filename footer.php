@@ -65,12 +65,15 @@
           </ul>
         </div>
       </div>
+      <div class="row padtop">
+        <div class="col-xs-12">
+          <p class="small text-muted text-center"><?php bloginfo( 'name' ); ?> is independently organized and operated under license from <a href="http://makermedia.com/" target="_blank">Maker Media, Inc.</a></p>
+        </div>
+      </div>
     </div>
   </div>
-
 </div>
 <!-- end main container -->
-
 <?php wp_footer(); ?>
 </body>
 </html>

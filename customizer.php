@@ -4,11 +4,27 @@ function home_img_slider( $wp_customize ) {
     $wp_customize->remove_section( 'colors' );
     $wp_customize->remove_section( 'static_front_page' );
 
+////////////////////////////////////////////////////////////////////
+// Home page image carousel
+////////////////////////////////////////////////////////////////////
     $wp_customize->add_section( 'home_img_carousel', array(
         'title' => 'Homepage Image Carousel',
         'description' => 'This section contains all settings for the home page image carousel',
-        'priority' => 103,
+        'priority' => 104,
     ));
+    // Hide checkbox
+    $wp_customize->add_setting( 'home_img_carousel_checkbox', array(
+        'default'        => true,
+    ));
+    $wp_customize->add_control(
+        'home_img_carousel_checkbox', 
+        array(
+            'label'    => __( 'Check to hide the image carousel' ),
+            'section'  => 'home_img_carousel',
+            'settings' => 'home_img_carousel_checkbox',
+            'type'     => 'checkbox',
+        )
+    );
     // SLIDER 1
     $wp_customize->add_setting( 'slide_img_upload_1' );
     $wp_customize->add_control( new WP_Customize_Image_Control(
@@ -65,7 +81,7 @@ function home_img_slider( $wp_customize ) {
     $wp_customize->add_control(
         'slide_img_upload_2_checkbox', 
         array(
-            'label'    => __( 'Show or Hide Slide 2' ),
+            'label'    => __( 'Check to hide Slide 2' ),
             'section'  => 'home_img_carousel',
             'settings' => 'slide_img_upload_2_checkbox',
             'type'     => 'checkbox',
@@ -119,14 +135,14 @@ function home_img_slider( $wp_customize ) {
         'type'     => 'text',
     ));
 
-// SLIDER 3
+    // SLIDER 3
     $wp_customize->add_setting( 'slide_img_upload_3_checkbox', array(
         'default'        => false,
     ));
     $wp_customize->add_control(
         'slide_img_upload_3_checkbox', 
         array(
-            'label'    => __( 'Show or Hide Slide 3' ),
+            'label'    => __( 'Check to hide Slide 3' ),
             'section'  => 'home_img_carousel',
             'settings' => 'slide_img_upload_3_checkbox',
             'type'     => 'checkbox',
@@ -179,8 +195,54 @@ function home_img_slider( $wp_customize ) {
         'settings' => 'slide_3_link',
         'type'     => 'text',
     ));
+
+////////////////////////////////////////////////////////////////////
+// Date, time, and location for header
+////////////////////////////////////////////////////////////////////
+    $wp_customize->add_section( 'header_date_time', array(
+        'title' => 'Header Date, Time, and Location',
+        'description' => 'These are optional settings for displaying the date, time, and location in the top header area right next to the site logo.',
+        'priority' => 99,
+    ));
+    // Hide checkbox
+    $wp_customize->add_setting( 'header_date_time_checkbox', array(
+        'default'        => false,
+    ));
+    $wp_customize->add_control(
+        'header_date_time_checkbox', 
+        array(
+            'label'    => __( 'Check to hide these fields' ),
+            'section'  => 'header_date_time',
+            'settings' => 'header_date_time_checkbox',
+            'type'     => 'checkbox',
+        )
+    );
+    // Date and Time field
+    $wp_customize->add_setting( 'header_date_time_field', array(
+        'sanitize_callback' => 'sanitize_header_date_time_field'
+    ));
+    function sanitize_header_date_time_field( $input ) {
+        return wp_kses_post( force_balance_tags( $input ) );
+    } 
+    $wp_customize->add_control( 'header_date_time_field', array(
+        'label'    => __( 'Enter date and time here like this: "Saturday, May 7, 2016 10AM – 4PM"' ),
+        'section'  => 'header_date_time',
+        'settings' => 'header_date_time_field',
+        'type'     => 'text'
+    ));
+    // Location field
+    $wp_customize->add_setting( 'header_location_field', array(
+        'sanitize_callback' => 'sanitize_header_location_field'
+    ));
+    function sanitize_header_location_field( $input ) {
+        return wp_kses_post( force_balance_tags( $input ) );
+    } 
+    $wp_customize->add_control( 'header_location_field', array(
+        'label'    => __( 'Enter location here like this: "Schurz High School, Chicago, IL"' ),
+        'section'  => 'header_date_time',
+        'settings' => 'header_location_field',
+        'type'     => 'text'
+    ));
 }
 add_action( 'customize_register', 'home_img_slider' );
-
-
 ?>

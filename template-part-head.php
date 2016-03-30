@@ -9,7 +9,9 @@
         <?php // Header Logo ?>
         <?php if ( get_header_image() != '' ) : ?>
             <div class="dmbs-header-img">
-                <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><img class="img-responsive header-logo" src="<?php header_image(); ?>" alt="<?php bloginfo( 'name' ); ?> logo" /></a>
+                <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+                    <img class="img-responsive header-logo" src="<?php header_image(); ?>" alt="<?php bloginfo( 'name' ); ?> logo" />
+                </a>
             </div>
         <?php endif; ?>
 
@@ -19,14 +21,20 @@
         <div class="col-sm-12 dmbs-header-text">
         <?php endif; ?>
 
-            <?php // Header Date and Time ?>
-            <?php if ( get_header_textcolor() != 'blank' ) : ?>
-                <h1><a class="custom-header-text-color" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
-                <h4 class="custom-header-text-color"><?php bloginfo( 'description' ); ?></h4>
-            <?php else : ?>
-                <h1><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
-                <h4><?php bloginfo( 'description' ); ?></h4>
-            <?php endif; ?>
+            <?php // Header Date and Time
+            if(false === get_theme_mod('header_date_time_checkbox')) {
+
+                $header_date_time_field = get_theme_mod('header_date_time_field');
+                $header_location_field = get_theme_mod('header_location_field');
+                if ( get_header_textcolor() != 'blank' ) : ?>
+                    <h1 class="custom-header-text-color"><?php echo $header_date_time_field; ?></h1>
+                    <h4 class="custom-header-text-color"><?php echo $header_location_field; ?></h4>
+                <?php else : ?>
+                    <h1><?php echo $header_date_time_field; ?></h1>
+                    <h4><?php echo $header_location_field; ?></h4>
+                <?php endif; ?>
+
+            <?php } ?>
 
         </div>
 

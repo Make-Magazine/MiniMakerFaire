@@ -6,7 +6,8 @@
 
 <!-- start content container -->
 <div class="dmbs-content">
-
+  <?php
+  if(false === get_theme_mod('home_img_carousel_checkbox')) { ?>
   <div class="container">
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner" role="listbox">
@@ -98,6 +99,7 @@
       </a>
     </div><!-- /.carousel -->
   </div>
+  <?php } ?>
 
   <div class="dmbs-main">
 
@@ -183,10 +185,36 @@
     </div>
     <!-- End Image right and text left info Pannel -->
 
-
     <!-- Featured Maker Pannel -->
     <div class="container featured-maker-panel">
       <div class="row">
+        <div class="col-xs-12 text-center padbottom">
+          <h2>Featured Makers</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-6 col-md-4">
+          <a href="http://makercon.com/speaker/minerva-tantoco/">
+            <div class="featured-maker-panel-img">
+              <img src="http://lorempixel.com/image_output/people-q-c-480-480-1.jpg" class="img-circle img-responsive" alt="">
+            </div>
+            <div class="text-center">
+              <h4>Minerva Tantoco</h4>
+              <p>Chief Technology Officer, New York City</p>
+            </div>
+          </a>
+        </div>
+        <div class="col-xs-6 col-md-4">
+          <a href="http://makercon.com/speaker/minerva-tantoco/">
+            <div class="featured-maker-panel-img">
+              <img src="http://lorempixel.com/image_output/people-q-c-480-480-1.jpg" class="img-circle img-responsive" alt="">
+            </div>
+            <div class="text-center">
+              <h4>Minerva Tantoco</h4>
+              <p>Chief Technology Officer, New York City</p>
+            </div>
+          </a>
+        </div>
         <div class="col-xs-6 col-md-4">
           <a href="http://makercon.com/speaker/minerva-tantoco/">
             <div class="featured-maker-panel-img">
