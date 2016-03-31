@@ -19,58 +19,20 @@ load_theme_textdomain( 'devdmbootstrap3', get_template_directory() . '/languages
         'wheel' => array(
             'url' => '%s/img/makerfaire.gif',
             'thumbnail_url' => '%s/img/makerfaire.gif',
-            'description' => __( 'Your Faire Name', 'devdmbootstrap' )
+            'description' => __( 'Mini Maker Faire Theme', 'devdmbootstrap' )
         ))
 
     );
 
     $defaults = array(
         'default-image'          => get_template_directory_uri() . '/img/makerfaire.gif',
-        'default-text-color'     => '111',
-        'header-text'            => true,
+        'header-text'            => false,
         'uploads'                => true,
         'wp-head-callback'       => '',
         'admin-head-callback'    => '',
         'admin-preview-callback' => 'devdm_admin_header_image',
     );
     add_theme_support( 'custom-header', $defaults );
-
-    function devdm_admin_header_image() { ?>
-
-        <div id="headimg">
-            <?php
-            $color = get_header_textcolor();
-            $image = get_header_image();
-
-            if ( $color && $color != 'blank' ) :
-                $style = ' style="color:#' . $color . '"';
-            else :
-                $style = ' style="display:none"';
-            endif;
-            ?>
-
-
-            <?php if ( $image ) : ?>
-                <img src="<?php echo esc_url( $image ); ?>" alt="" />
-            <?php endif; ?>
-            <div class="dm_header_name_desc">
-            <h1><a id="name"<?php echo $style; ?> onclick="return false;" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
-            <div id="desc"<?php echo $style; ?>><?php bloginfo( 'description' ); ?></div>
-
-            </div>
-        </div>
-
-    <?php }
-
-    function custom_header_text_color () {
-        if ( get_header_textcolor() != 'blank' ) { ?>
-            <style>
-               .custom-header-text-color { color: #<?php echo get_header_textcolor(); ?> }
-            </style>
-    <?php }
-    }
-
-    add_action ('wp_head', 'custom_header_text_color');
 
 ////////////////////////////////////////////////////////////////////
 // Register our settings options (the options we want to use)

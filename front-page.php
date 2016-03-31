@@ -37,7 +37,7 @@
         </div>
 
         <?php
-        if(true === get_theme_mod('slide_img_upload_2_checkbox')) { ?>
+        if(false === get_theme_mod('slide_img_upload_2_checkbox')) { ?>
           <div class="item">
             <?php $slide_1_link = get_theme_mod('slide_1_link');
             if (!empty($slide_1_link)) :?>
@@ -63,7 +63,7 @@
           </div>
         <?php } ?>
         <?php
-        if(true === get_theme_mod('slide_img_upload_3_checkbox')) { ?>
+        if(false === get_theme_mod('slide_img_upload_3_checkbox')) { ?>
           <div class="item">
             <?php $slide_3_link = get_theme_mod('slide_3_link');
             if (!empty($slide_3_link)) :?>
@@ -103,6 +103,7 @@
 
   <div class="dmbs-main">
 
+    <?php if(false === get_theme_mod('hompage_wimf_checkbox')) { ?>
     <!-- WIMF Pannel -->
     <div class="container what-is-maker-faire">
       <div class="row">
@@ -122,6 +123,52 @@
       </div>
     </div>
     <!-- End WIMF Pannel -->
+    <?php } ?>
+
+    <?php
+
+    // check if the flexible content field has rows of data
+    if( have_rows('home_page_panels_field') ):
+      ?>hello <?php
+
+      // loop through the rows of data
+      while ( have_rows('home_page_panels') ) : the_row();
+
+        // check current row layout
+        if( get_row_layout() == 'featured_makers_panel' ):
+
+          // check if the nested repeater field has rows of data
+          if( have_rows('featured_makers') ):
+
+            echo '<ul>';
+
+            // loop through the rows of data
+            while ( have_rows('featured_makers') ) : the_row();
+
+              $image = get_sub_field('maker_image');
+
+              echo '<li><img src="' . $image['url'] . '" alt="' . $image['alt'] . '" /></li>';
+
+            endwhile;
+
+            echo '</ul>';
+
+          endif;
+
+        endif;
+
+
+
+      endwhile;
+
+    else :
+
+        // no layouts found
+      ?> no layout found<?php
+
+    endif;
+
+    ?>
 
     <!-- CTA Pannel -->
     <div class="container call-to-action">

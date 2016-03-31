@@ -26,13 +26,9 @@
 
                 $header_date_time_field = get_theme_mod('header_date_time_field');
                 $header_location_field = get_theme_mod('header_location_field');
-                if ( get_header_textcolor() != 'blank' ) : ?>
-                    <h1 class="custom-header-text-color"><?php echo $header_date_time_field; ?></h1>
-                    <h4 class="custom-header-text-color"><?php echo $header_location_field; ?></h4>
-                <?php else : ?>
-                    <h1><?php echo $header_date_time_field; ?></h1>
-                    <h4><?php echo $header_location_field; ?></h4>
-                <?php endif; ?>
+                $header_date_time_color = get_theme_mod('header_date_time_color'); ?>
+                <h1 style="color: <?php echo $header_date_time_color; ?>"><?php echo $header_date_time_field; ?></h1>
+                <h4 style="color: <?php echo $header_date_time_color; ?>"><?php echo $header_location_field; ?></h4>
 
             <?php } ?>
 
