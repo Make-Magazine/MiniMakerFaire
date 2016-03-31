@@ -105,7 +105,7 @@
 
     <?php if(false === get_theme_mod('hompage_wimf_checkbox')) { ?>
     <!-- WIMF Pannel -->
-    <div class="container what-is-maker-faire">
+    <div class="container std-panel what-is-maker-faire">
       <div class="row">
         <h2 class="text-center">What is Maker Faire?</h2>
       </div>
@@ -128,31 +128,76 @@
     <?php
 
     // check if the flexible content field has rows of data
-    if( have_rows('home_page_panels_field') ):
-      ?>hello <?php
+    if( have_rows('home_page_panels', 22)):
 
       // loop through the rows of data
-      while ( have_rows('home_page_panels') ) : the_row();
+      while ( have_rows('home_page_panels', 22) ) : the_row();
 
-        // check current row layout
+
+
+        // FEATURED MAKERS
         if( get_row_layout() == 'featured_makers_panel' ):
 
           // check if the nested repeater field has rows of data
           if( have_rows('featured_makers') ):
 
-            echo '<ul>';
+            echo '<div class="container std-panel"><div class="row">';
 
             // loop through the rows of data
             while ( have_rows('featured_makers') ) : the_row();
 
               $image = get_sub_field('maker_image');
 
-              echo '<li><img src="' . $image['url'] . '" alt="' . $image['alt'] . '" /></li>';
+              echo '<div class="col-xs-4">
+                      <img class="img-circle img-responsive" src="' . $image['url'] . '" alt="' . $image['alt'] . '" />
+                    </div>';
 
             endwhile;
 
-            echo '</ul>';
+            echo '</div></div>
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
+                        <hr class="hr-half" />
+                      </div>
+                    </div>
+                  </div>';
 
+          endif;
+
+
+
+        // RECENT POSTS
+        elseif( get_row_layout() == 'post_feed' ): 
+
+          $post_feed_quantity = get_sub_field('post_quantity');
+            $args = array( 'numberposts' => $post_feed_quantity, 'post_status' => 'publish' );
+            $recent_posts = wp_get_recent_posts( $args );
+
+            echo '<div class="container std-panel"><div class="row">';
+
+            foreach( $recent_posts as $recent ){
+              echo '<div class="col-xs-6 col-sm-4">
+                      <a href="' . get_permalink($recent["ID"]) . '">' .   $recent["post_title"].'</a>
+                    </div> ';
+            }
+
+            echo '</div></div>
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
+                        <hr class="hr-half" />
+                      </div>
+                    </div>
+                  </div>';
+
+
+        // WIDGET AREA
+        elseif( get_row_layout() == 'widget_area_1' ):
+
+          $widget_radio = get_sub_field('show_widget_area_1');
+          if( $widget_radio == 'show' ):
+            dynamic_sidebar( 'page_widget_area_1' );
           endif;
 
         endif;
@@ -171,7 +216,7 @@
     ?>
 
     <!-- CTA Pannel -->
-    <div class="container call-to-action">
+    <div class="container std-panel call-to-action">
       <div class="row">
         <div class="col-sm-8">
           <h2>Buy your Maker Faire tickets here!</h2>
@@ -191,7 +236,7 @@
     <!-- End CTA Pannel -->
 
     <!-- Image left and text right info Pannel -->
-    <div class="container image-text-panel">
+    <div class="container std-panel image-text-panel">
       <div class="row">
         <div class="col-sm-6">
           <img src="http://lorempixel.com/600/350/" alt="" class="img-responsive" />
@@ -212,7 +257,7 @@
     <!-- End Image left and text right info Pannel -->
 
     <!-- Image right and text left info Pannel -->
-    <div class="container image-text-panel">
+    <div class="container std-panel image-text-panel">
       <div class="row">
         <div class="col-sm-6">
           <h3>Even more info about this faire?</h3>
@@ -233,7 +278,7 @@
     <!-- End Image right and text left info Pannel -->
 
     <!-- Featured Maker Pannel -->
-    <div class="container featured-maker-panel">
+    <div class="container std-panel featured-maker-panel">
       <div class="row">
         <div class="col-xs-12 text-center padbottom">
           <h2>Featured Makers</h2>

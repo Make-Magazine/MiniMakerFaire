@@ -95,15 +95,29 @@ if(!function_exists( '_wp_render_title_tag')) {
 // Register the Sidebar
 ////////////////////////////////////////////////////////////////////
 
-        register_sidebar(
-            array(
-            'name' => 'Right Sidebar',
-            'id' => 'right-sidebar',
-            'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-            'after_widget' => '</aside>',
-            'before_title' => '<h3>',
-            'after_title' => '</h3>',
-        ));
+    register_sidebar(array(
+        'name' => 'Right Sidebar',
+        'id' => 'right-sidebar',
+        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+        'after_widget' => '</aside>',
+        'before_title' => '<h3>',
+        'after_title' => '</h3>',
+    ));
+    register_sidebar(array(
+        'name'=> 'Page Widget Area 1',
+        'id' => 'page_widget_area_1',
+        'before_widget' => '<div class="container std-panel"><div class="row"><div class="col-xs-12 text-center">',
+        'after_widget' => '</div></div></div>
+                              <div class="container">
+                                <div class="row">
+                                  <div class="col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
+                                    <hr class="hr-half" />
+                                  </div>
+                                </div>
+                              </div>',
+        'before_title' => '<h3>',
+        'after_title' => '</h3>',
+    ));
 
 ////////////////////////////////////////////////////////////////////
 // Register hook and action to set Main content area col-md- width based on sidebar declarations
