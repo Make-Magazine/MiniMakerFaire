@@ -142,14 +142,21 @@
           if( have_rows('featured_makers') ):
 
             echo '<div class="container std-panel"><div class="row">';
+            $maker_title = get_sub_field('panel_title');
+            echo '<div class="col-xs-12 text-center padbottom"><h2>Featured Makers</h2></div>';
 
             // loop through the rows of data
             while ( have_rows('featured_makers') ) : the_row();
 
               $image = get_sub_field('maker_image');
 
-              echo '<div class="col-xs-4">
-                      <img class="img-circle img-responsive" src="' . $image['url'] . '" alt="' . $image['alt'] . '" />
+              echo '<div class="col-xs-4 text-center">
+                      <img class="img-circle img-responsive" style="margin-left: auto;margin-right: auto;" src="' . $image['url'] . '" alt="' . $image['alt'] . '" />
+                      <br />
+            <div class="text-center">
+              <h4>Minerva Tantoco</h4>
+              <p>Chief Technology Officer, New York City</p>
+            </div>
                     </div>';
 
             endwhile;
@@ -178,8 +185,11 @@
 
             foreach( $recent_posts as $recent ){
               echo '<div class="col-xs-6 col-sm-4">
-                      <a href="' . get_permalink($recent["ID"]) . '">' .   $recent["post_title"].'</a>
-                    </div> ';
+                      <a href="' . get_permalink($recent["ID"]) . '">
+                      <p>' . $recent["post_title"] . '</p>
+                      <p>' . substr($recent["post_content"], 0 , 150) . '</p>
+                      </a>
+                    </div>';
             }
 
             echo '</div></div>
@@ -190,6 +200,25 @@
                       </div>
                     </div>
                   </div>';
+
+
+        // 2 COLUMN LAYOUT
+        elseif( get_row_layout() == '2_column_photo_and_text_panel' ): 
+
+          $column_1 = get_sub_field('column_1');
+          $column_2 = get_sub_field('column_2');
+          echo '<div class="container std-panel"><div class="row">';
+          echo '<div class="col-xs-6">' . $column_1 . '</div>';
+          echo '<div class="col-xs-6">' . $column_2 . '</div>';
+
+          echo '</div></div>
+                <div class="container">
+                  <div class="row">
+                    <div class="col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
+                      <hr class="hr-half" />
+                    </div>
+                  </div>
+                </div>';
 
 
         // WIDGET AREA
@@ -278,7 +307,7 @@
     <!-- End Image right and text left info Pannel -->
 
     <!-- Featured Maker Pannel -->
-    <div class="container std-panel featured-maker-panel">
+<!--     <div class="container std-panel featured-maker-panel">
       <div class="row">
         <div class="col-xs-12 text-center padbottom">
           <h2>Featured Makers</h2>
@@ -317,7 +346,7 @@
               <p>Chief Technology Officer, New York City</p>
             </div>
           </a>
-        </div>
+        </div> -->
 
 
       </div>
