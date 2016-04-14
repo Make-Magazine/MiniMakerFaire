@@ -1,8 +1,4 @@
-<?php global $dm_settings; ?>
-
 <div class="dmbs-container">
-
-<?php if ($dm_settings['show_header'] != 0) : ?>
 
     <div class="container dmbs-header">
 
@@ -35,5 +31,3 @@
         </div>
 
     </div>
-
-<?php endif; ?>

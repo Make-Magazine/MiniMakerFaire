@@ -8,7 +8,6 @@
     $developer_uri = "http://makermedia.com";
     $shortname = "mf";
     $version = '1.0';
-    load_theme_textdomain( 'devdmbootstrap3', get_template_directory() . '/languages' );
 
 ////////////////////////////////////////////////////////////////////
 // include Theme-options.php for Admin Theme settings
@@ -36,6 +35,7 @@
         wp_register_style('bootstrap.css', get_template_directory_uri() . '/css/bootstrap.min.css', array(), null, 'all' );
         wp_enqueue_style( 'bootstrap.css');
         wp_enqueue_style( 'theme-css', get_stylesheet_directory_uri() . '/css/style.css' );
+        wp_enqueue_style( 'font-awesome-css', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css', array(), null, 'all' );
     }
     add_action('wp_enqueue_scripts', 'devdmbootstrap3_theme_stylesheets');
 
@@ -43,13 +43,14 @@
 ////////////////////////////////////////////////////////////////////
 // Register Bootstrap JS with jquery
 ////////////////////////////////////////////////////////////////////
+
     function devdmbootstrap3_theme_js()
     {
-        global $version;
-        wp_enqueue_script('theme-js', get_template_directory_uri() . '/js/bootstrap.min.js',array( 'jquery' ),$version,true );
+        wp_enqueue_script('theme-js', get_template_directory_uri() . '/js/bootstrap.min.js',array( 'jquery' ),false,true );
         wp_enqueue_script('misc-scripts', get_stylesheet_directory_uri() . '/js/scripts.js', array( 'jquery' ),false,true );
     }
     add_action('wp_enqueue_scripts', 'devdmbootstrap3_theme_js');
+
 
 ////////////////////////////////////////////////////////////////////
 // Add Title Tag Support with Regular Title Tag injection Fall back.
@@ -79,6 +80,7 @@ if(!function_exists( '_wp_render_title_tag')) {
 
     require_once('lib/wp_bootstrap_navwalker.php');
 
+
 ////////////////////////////////////////////////////////////////////
 // Register Menus
 ////////////////////////////////////////////////////////////////////
@@ -89,6 +91,7 @@ if(!function_exists( '_wp_render_title_tag')) {
             'footer_menu' => 'Footer Menu'
         )
     );
+
 
 ////////////////////////////////////////////////////////////////////
 // Register the Sidebar
@@ -118,28 +121,6 @@ if(!function_exists( '_wp_render_title_tag')) {
         'after_title' => '</h3>',
     ));
 
-////////////////////////////////////////////////////////////////////
-// Register hook and action to set Main content area col-md- width based on sidebar declarations
-////////////////////////////////////////////////////////////////////
-
-add_action( 'devdmbootstrap3_main_content_width_hook', 'devdmbootstrap3_main_content_width_columns');
-
-function devdmbootstrap3_main_content_width_columns () {
-
-    global $dm_settings;
-
-    $columns = '12';
-
-    if ($dm_settings['right_sidebar'] != 0) {
-        $columns = $columns - $dm_settings['right_sidebar_width'];
-    }
-
-    echo $columns;
-}
-
-function devdmbootstrap3_main_content_width() {
-    do_action('devdmbootstrap3_main_content_width_hook');
-}
 
 ////////////////////////////////////////////////////////////////////
 // Add support for a featured image and the size
