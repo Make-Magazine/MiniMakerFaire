@@ -1,0 +1,1 @@
+jQuery( ".sponsors-admin .acf-field-repeater .acf-button" ).html( "Add New Sponsor" );

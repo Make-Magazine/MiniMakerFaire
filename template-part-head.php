@@ -8,7 +8,7 @@
 
         <?php // Header Logo ?>
         <?php if ( get_header_image() != '' ) : ?>
-            <div class="dmbs-header-img">
+            <div class="col-xs-12 col-sm-4 col-md-3">
                 <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
                     <img class="img-responsive header-logo" src="<?php header_image(); ?>" alt="<?php bloginfo( 'name' ); ?> logo" />
                 </a>
@@ -16,9 +16,9 @@
         <?php endif; ?>
 
         <?php if ( get_header_image() != '' ) : ?>
-        <div class="dmbs-header-text">
+        <div class="col-xs-12 col-sm-8 col-md-9">
         <?php else : ?>
-        <div class="col-sm-12 dmbs-header-text">
+        <div class="col-sm-12">
         <?php endif; ?>
 
             <?php // Header Date and Time

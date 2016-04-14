@@ -1,19 +1,13 @@
 .dmbs-header {
   margin-top: 10px;
   margin-bottom: 10px;
+  padding: 0;
 
-  .dmbs-header-img {
-    float: left;
     .header-logo {
-      max-width: 300px;
-      max-height: 100px;
     }
-  }
-
-  .dmbs-header-text {
-    float: left;
-    padding: 0 30px;
-  }
+    h1 {
+        font-size: 28px;
+    }
 
   #home-carousel {
     .carousel-caption {
@@ -43,5 +37,22 @@
     font-size: 18px;
     padding-left: 25px;
     padding-right: 25px;
+  }
+}
+
+@media screen and (min-width: 1200px) { 
+}
+@media screen and (min-width: 992px) and (max-width: 1199px) { 
+}
+@media screen and (min-width: 768px) and (max-width: 991px) { 
+}
+@media screen and (max-width: 767px) {
+  .dmbs-header .col-xs-12 {
+    text-align: center;
+    a {
+      margin-left: auto;
+      margin-right: auto;
+      display: inline-block;
+    }
   }
 }

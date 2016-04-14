@@ -115,7 +115,7 @@
         </div>
       </div>
     </div>
-    <div class="container">
+    <div class="container panel-hr">
       <div class="row">
         <div class="col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
           <hr class="hr-half" />
@@ -142,27 +142,30 @@
           if( have_rows('featured_makers') ):
 
             echo '<div class="container std-panel"><div class="row">';
-            $maker_title = get_sub_field('panel_title');
-            echo '<div class="col-xs-12 text-center padbottom"><h2>Featured Makers</h2></div>';
+            if(get_sub_field('title')){
+              echo '<div class="col-xs-12 text-center padbottom"><h2>' . get_sub_field('title') . '</h2></div>';
+            }
+
+            ?><div class="col-xs-12 text-center padbottom"><h2>Featurd Makers</h2></div><?php
 
             // loop through the rows of data
             while ( have_rows('featured_makers') ) : the_row();
 
               $image = get_sub_field('maker_image');
 
-              echo '<div class="col-xs-4 text-center">
+              echo '<div class="col-xs-6 col-sm-4 text-center">
                       <img class="img-circle img-responsive" style="margin-left: auto;margin-right: auto;" src="' . $image['url'] . '" alt="' . $image['alt'] . '" />
                       <br />
-            <div class="text-center">
-              <h4>Minerva Tantoco</h4>
-              <p>Chief Technology Officer, New York City</p>
-            </div>
+                      <div class="text-center">
+                        <h4>Minerva Tantoco</h4>
+                        <p>Chief Technology Officer, New York City</p>
+                      </div>
                     </div>';
 
             endwhile;
 
             echo '</div></div>
-                  <div class="container">
+                  <div class="container panel-hr">
                     <div class="row">
                       <div class="col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
                         <hr class="hr-half" />
@@ -178,28 +181,39 @@
         elseif( get_row_layout() == 'post_feed' ): 
 
           $post_feed_quantity = get_sub_field('post_quantity');
-            $args = array( 'numberposts' => $post_feed_quantity, 'post_status' => 'publish' );
-            $recent_posts = wp_get_recent_posts( $args );
+          $args = array( 'numberposts' => $post_feed_quantity, 'post_status' => 'publish' );
+          $recent_posts = wp_get_recent_posts( $args );
 
-            echo '<div class="container std-panel"><div class="row">';
+          echo '<div class="container std-panel recent-post-panel"><div class="row">';
 
-            foreach( $recent_posts as $recent ){
-              echo '<div class="col-xs-6 col-sm-4">
-                      <a href="' . get_permalink($recent["ID"]) . '">
-                      <p>' . $recent["post_title"] . '</p>
-                      <p>' . substr($recent["post_content"], 0 , 150) . '</p>
-                      </a>
-                    </div>';
-            }
+          if(get_sub_field('title')){
+            echo '<div class="col-xs-12 text-center padbottom"><h2>' . get_sub_field('title') . '</h2></div>';
+          }
 
-            echo '</div></div>
-                  <div class="container">
-                    <div class="row">
-                      <div class="col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
-                        <hr class="hr-half" />
-                      </div>
-                    </div>
+          foreach( $recent_posts as $recent ){
+            echo '<div class="col-xs-6 col-sm-4">
+                    <a href="' . get_permalink($recent["ID"]) . '">';
+                    if ( has_post_thumbnail() ) {
+                      $thumb_id = get_post_thumbnail_id($recent['ID']);
+                      $url = wp_get_attachment_url($thumb_id);
+                      echo "<div class='recent-post-img'><img src='".$url."' class='img-responsive' /></div>";
+                    }
+
+            echo   '<h4>' . $recent["post_title"] . '</h4>
+                    <p>' . substr($recent["post_content"], 0 , 150) . '...</p>
+                    <p><strong>Read More <i class="fa fa-chevron-right" aria-hidden="true"></i></strong></p>
+                    </a>
                   </div>';
+          }
+
+          echo '</div></div>
+                <div class="container panel-hr">
+                  <div class="row">
+                    <div class="col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
+                      <hr class="hr-half" />
+                    </div>
+                  </div>
+                </div>';
 
 
         // 2 COLUMN LAYOUT
@@ -208,11 +222,14 @@
           $column_1 = get_sub_field('column_1');
           $column_2 = get_sub_field('column_2');
           echo '<div class="container std-panel"><div class="row">';
-          echo '<div class="col-xs-6">' . $column_1 . '</div>';
-          echo '<div class="col-xs-6">' . $column_2 . '</div>';
+          if(get_sub_field('title')){
+            echo '<div class="col-xs-12 text-center padbottom"><h2>' . get_sub_field('title') . '</h2></div>';
+          }
+          echo '<div class="col-sm-6">' . $column_1 . '</div>';
+          echo '<div class="col-sm-6">' . $column_2 . '</div>';
 
           echo '</div></div>
-                <div class="container">
+                <div class="container panel-hr">
                   <div class="row">
                     <div class="col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
                       <hr class="hr-half" />
@@ -237,124 +254,14 @@
 
     else :
 
-        // no layouts found
+      // no layouts found
       ?> no layout found<?php
 
     endif;
 
     ?>
 
-    <!-- CTA Pannel -->
-    <div class="container std-panel call-to-action">
-      <div class="row">
-        <div class="col-sm-8">
-          <h2>Buy your Maker Faire tickets here!</h2>
-        </div>
-        <div class="col-sm-4 cta-panel-btn">
-          <a class="btn btn-info" href="#">Buy tickets</a>
-        </div>
-      </div>
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
-          <hr class="hr-half" />
-        </div>
-      </div>
-    </div>
-    <!-- End CTA Pannel -->
-
-    <!-- Image left and text right info Pannel -->
-    <div class="container std-panel image-text-panel">
-      <div class="row">
-        <div class="col-sm-6">
-          <img src="http://lorempixel.com/600/350/" alt="" class="img-responsive" />
-        </div>
-        <div class="col-sm-6">
-          <h3>More info about this faire?</h3>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-        </div>
-      </div>
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
-          <hr class="hr-half" />
-        </div>
-      </div>
-    </div>
-    <!-- End Image left and text right info Pannel -->
-
-    <!-- Image right and text left info Pannel -->
-    <div class="container std-panel image-text-panel">
-      <div class="row">
-        <div class="col-sm-6">
-          <h3>Even more info about this faire?</h3>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-        </div>
-        <div class="col-sm-6">
-          <img src="http://lorempixel.com/600/350/" alt="" class="img-responsive" />
-        </div>
-      </div>
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
-          <hr class="hr-half" />
-        </div>
-      </div>
-    </div>
-    <!-- End Image right and text left info Pannel -->
-
-    <!-- Featured Maker Pannel -->
-<!--     <div class="container std-panel featured-maker-panel">
-      <div class="row">
-        <div class="col-xs-12 text-center padbottom">
-          <h2>Featured Makers</h2>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-6 col-md-4">
-          <a href="http://makercon.com/speaker/minerva-tantoco/">
-            <div class="featured-maker-panel-img">
-              <img src="http://lorempixel.com/image_output/people-q-c-480-480-1.jpg" class="img-circle img-responsive" alt="">
-            </div>
-            <div class="text-center">
-              <h4>Minerva Tantoco</h4>
-              <p>Chief Technology Officer, New York City</p>
-            </div>
-          </a>
-        </div>
-        <div class="col-xs-6 col-md-4">
-          <a href="http://makercon.com/speaker/minerva-tantoco/">
-            <div class="featured-maker-panel-img">
-              <img src="http://lorempixel.com/image_output/people-q-c-480-480-1.jpg" class="img-circle img-responsive" alt="">
-            </div>
-            <div class="text-center">
-              <h4>Minerva Tantoco</h4>
-              <p>Chief Technology Officer, New York City</p>
-            </div>
-          </a>
-        </div>
-        <div class="col-xs-6 col-md-4">
-          <a href="http://makercon.com/speaker/minerva-tantoco/">
-            <div class="featured-maker-panel-img">
-              <img src="http://lorempixel.com/image_output/people-q-c-480-480-1.jpg" class="img-circle img-responsive" alt="">
-            </div>
-            <div class="text-center">
-              <h4>Minerva Tantoco</h4>
-              <p>Chief Technology Officer, New York City</p>
-            </div>
-          </a>
-        </div> -->
-
-
-      </div>
-    </div>
-
-    <!-- Featured Maker Pannel -->
-
-  </div>
+  </div><!-- end dmbs-main -->
 
 </div>
 <!-- end content container -->

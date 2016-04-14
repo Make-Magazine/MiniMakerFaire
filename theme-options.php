@@ -7,7 +7,8 @@ load_theme_textdomain( 'devdmbootstrap3', get_template_directory() . '/languages
 ////////////////////////////////////////////////////////////////////
 
     function devdm_theme_style() {
-        wp_enqueue_style('devdm-theme', get_template_directory_uri() . '/css/admin.css');
+        wp_enqueue_style('admin-styles', get_template_directory_uri() . '/css/admin.css');
+        wp_enqueue_script('admin-scripts', get_stylesheet_directory_uri() . '/js/admin.js', array( 'jquery' ),false,true );
     }
     add_action('admin_enqueue_scripts', 'devdm_theme_style');
 
