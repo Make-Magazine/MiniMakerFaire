@@ -74,22 +74,21 @@ if(!function_exists( '_wp_render_title_tag')) {
 
 
 ////////////////////////////////////////////////////////////////////
-// Register Custom Navigation Walker include custom menu widget to use walkerclass
+// Register Custom Navigation Walker
 ////////////////////////////////////////////////////////////////////
 
     require_once('lib/wp_bootstrap_navwalker.php');
-    require_once('lib/bootstrap-custom-menu-widget.php');
 
 ////////////////////////////////////////////////////////////////////
 // Register Menus
 ////////////////////////////////////////////////////////////////////
 
-        register_nav_menus(
-            array(
-                'main_menu' => 'Main Menu',
-                'footer_menu' => 'Footer Menu'
-            )
-        );
+    register_nav_menus(
+        array(
+            'main_menu' => 'Main Menu',
+            'footer_menu' => 'Footer Menu'
+        )
+    );
 
 ////////////////////////////////////////////////////////////////////
 // Register the Sidebar
