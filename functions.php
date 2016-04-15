@@ -30,6 +30,7 @@
 ////////////////////////////////////////////////////////////////////
 // Enqueue Styles (normal style.css and bootstrap.css)
 ////////////////////////////////////////////////////////////////////
+
     function devdmbootstrap3_theme_stylesheets()
     {
         wp_register_style('bootstrap.css', get_template_directory_uri() . '/css/bootstrap.min.css', array(), null, 'all' );
@@ -137,9 +138,65 @@ if(!function_exists( '_wp_render_title_tag')) {
 
 
 ////////////////////////////////////////////////////////////////////
-// Set Content Width
+// Sponsor slider panel from sponsors set in sponsors page
 ////////////////////////////////////////////////////////////////////
 
-if ( ! isset( $content_width ) ) $content_width = 800;
+  function sponsors_slider() {
+    if( have_rows('goldsmith_sponsors', $id) || have_rows('silversmith_sponsors', $id) || have_rows('coppersmith_sponsors', $id) || have_rows('media_sponsors', $id) ): ?>
+      <div class="sponsor-slide">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-7">
+              <h4 class="sponsor-slide-title">2016 Maker Faire Sponsors: <span class="sponsor-slide-cat"></span></h4>
+            </div>
+            <div class="col-sm-5">
+              <h5><a href="/sponsors">Become a sponsor</a></h5>
+              <h5><a href="/bay-area-2016/sponsors">All sponsors</a></h5>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+
+              <div id="carousel-sponsors-slider" class="carousel slide" data-ride="carousel">
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                  <!-- IMAGE SPONSORS -->
+                  <?php if( have_rows('goldsmith_sponsors', $id) ): ?>
+                  <div class="item">
+                    <div class="row spnosors-row">
+                      <div class="col-xs-12">
+                        <h3 class="sponsors-type text-center">GOLDSMITH</h3>
+                          <div class="sponsors-box">
+                          <?php
+                            while( have_rows('goldsmith_sponsors', $id) ): the_row();
+                              $sub_field_1 = get_sub_field('image'); //Photo
+                              $sub_field_2 = get_sub_field('url'); //URL
+
+                              echo '<div class="sponsors-box-md">';
+                              if( get_sub_field('url') ):
+                                echo '<a href="' . $sub_field_2 . '" target="_blank">';
+                              endif;
+                              echo '<img src="' . $sub_field_1 . '" alt="Maker Faire sponsor logo" class="img-responsive" />';
+                              if( get_sub_field('url') ):
+                                echo '</a>';
+                              endif;
+                              echo '</div>';
+                            endwhile; ?>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <?php endif; ?>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <?php endif;
+
+    }
+    add_action('sponsors_slider_function', 'sponsors_slider');
 
 ?>
