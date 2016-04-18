@@ -246,7 +246,114 @@
             dynamic_sidebar( 'page_widget_area_1' );
           endif;
 
-        endif;
+
+
+        // SPONSOR PANEL
+        elseif( get_row_layout() == 'sponsors_panel' ): 
+
+          $sponsor_panel_field_1 = get_sub_field('title_sponsor_panel');
+          $sponsor_panel_field_2 = get_sub_field('sub_title_sponsor_panel');
+          $sponsor_panel_field_3 = get_sub_field('become_a_sponsor_button');
+
+          // check if the nested repeater field has rows of data
+          if( have_rows('sponsors', 147) ):
+
+          echo '<div class="sponsor-slide">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-xs-12 text-center">
+                        <h3 class="sponsor-slide-title">' . $sponsor_panel_field_1 . '</h4>
+                        <div class="hr-red"><hr /></div>
+                        <h5>' . $sponsor_panel_field_2 . ' <span class="sponsor-slide-cat"></span></h5>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-xs-12">
+
+                        <div id="carousel-sponsors-slider" class="carousel slide" data-ride="carousel">
+                          <!-- Wrapper for slides -->
+                          <div class="carousel-inner" role="listbox">';
+
+            // loop through the rows of data
+            while ( have_rows('sponsors', 147) ) : the_row();
+
+              $sponsor_group_title = get_sub_field('sponsor_group_title'); //Sponsor group title
+
+              if( get_row_layout() == 'sponsors_with_image' ):
+
+                $sub_field_3 = get_sub_field('sponsors_image_size'); //size option
+
+                // check if the nested repeater field has rows of data
+                if( have_rows('sponsors_with_image') ):
+
+                  echo '<div class="item">
+                          <div class="row spnosors-row">
+                            <div class="col-xs-12">';
+                            if(!empty($sponsor_group_title)){
+                              echo '<h5 class="text-center sponsors-type">' . $sponsor_group_title . '</h5>';
+                            }
+                  echo '      <div class="sponsors-box">';
+
+                  // loop through the rows of data
+                  while ( have_rows('sponsors_with_image') ) : the_row();
+
+                    $sub_field_1 = get_sub_field('image'); //Photo
+                    $sub_field_2 = get_sub_field('url'); //URL
+                    
+                    echo '<div class="' . $sub_field_3 . '">';
+                    if( get_sub_field('url') ):
+                      echo '<a href="' . $sub_field_2 . '" target="_blank">';
+                    endif;
+                    echo '<img src="' . $sub_field_1 . '" alt="Maker Faire sponsor logo" class="img-responsive" />';
+                    if( get_sub_field('url') ):
+                      echo '</a>';
+                    endif;
+                    echo '</div>';
+
+                  endwhile;
+
+                  echo '      </div>
+                            </div>
+                          </div>
+                        </div>';
+
+                endif;
+
+              endif;
+
+            endwhile;
+
+            echo      '</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row sponsor_panel_bottom">
+                  <div class="col-xs-12 text-center">
+                    <p><a href="<?php echo $sponsor_panel_field_3; ?>">Become a Sponsor</a> <span>&middot;</span> <a href="/sponsors">All Sponsors</a></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="container panel-hr">
+              <div class="row">
+                <div class="col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
+                  <hr class="hr-half" />
+                </div>
+              </div>
+            </div>
+            <script>jQuery(".sponsor-slide .carousel-inner .item:first-child").addClass("active");
+                    jQuery(function() {
+                      var title = jQuery(".item.active .sponsors-type").html();
+                      jQuery(".sponsor-slide-cat").text(title);
+                      jQuery("#carousel-sponsors-slider").on("slid.bs.carousel", function () {
+                        var title = jQuery(".item.active .sponsors-type").html();
+                        jQuery(".sponsor-slide-cat").text(title);
+                      })
+                    });</script>';
+
+          endif; //End sponsor page loop
+
+        endif; //End sponsor panel
 
 
 

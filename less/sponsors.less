@@ -150,16 +150,15 @@
 
 // SPONSOR SLIDER FUNCTION
 .sponsor-slide {
-  border-top: 10px solid #3FAFED;
+
   h3.sponsors-type {
     font-weight: 300;
     font-size: 22px;
     margin-top: 0;
     display: none;
   }
-  h4.sponsor-slide-title {
-    color: #999;
-    font-weight: 300;
+  h3.sponsor-slide-title {
+    color: #333;
   }
   .sponsor-slide-cat {
     color: #666;
@@ -167,7 +166,6 @@
   }
   h5 {
     display: inline-block;
-    float: right;
     margin: 15px 10px 0;
     a {
       padding: 5px;
@@ -192,6 +190,9 @@
   }
   .spnosors-row {
     padding-bottom: 20px;
+    .sponsors-type {
+      display: none;
+    }
   }
   .sponsors-box {
     display: -webkit-box;
@@ -210,6 +211,31 @@
         -ms-flex-wrap: wrap;
             flex-wrap: wrap;
     padding-bottom: 10px;
+  }
+  .sponsors-box-lg {
+    width: 200px;
+    height: 100px;
+    margin-top: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-left: 1px solid #D3D3D3;
+    border-right: 1px solid #D3D3D3;
+    margin-left: -1px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    &:last-child {
+      border-right: 1px solid #D3D3D3;
+    }
   }
   .sponsors-box-md {
     width: 120px;
