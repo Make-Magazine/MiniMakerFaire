@@ -4,9 +4,9 @@
 */
 get_header();
 
-get_template_part('template-part', 'head');
+get_template_part('template-part', 'header');
 
-get_template_part('template-part', 'topnav'); ?>
+?>
 
 <div class="container sponsors-landing">
 

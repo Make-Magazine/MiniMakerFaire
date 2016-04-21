@@ -1,13 +1,11 @@
 <?php get_header(); ?>
 
-<?php get_template_part('template-part', 'head'); ?>
-
-<?php get_template_part('template-part', 'topnav'); ?>
+<?php get_template_part('template-part', 'header'); ?>
 
 <!-- start content container -->
-<div class="row dmbs-content">
+<div class="row">
 
-    <div class="col-md-9 dmbs-main">
+    <div class="col-md-9">
 
         <?php
 

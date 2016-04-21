@@ -151,11 +151,11 @@
 // SPONSOR SLIDER FUNCTION
 .sponsor-slide {
 
-  h3.sponsors-type {
-    font-weight: 300;
-    font-size: 22px;
-    margin-top: 0;
-    display: none;
+  .sponsor_panel_title {
+    p {
+      font-size: 18px;
+      margin-top: 5px;
+    }
   }
   h3.sponsor-slide-title {
     color: #333;
@@ -211,6 +211,31 @@
         -ms-flex-wrap: wrap;
             flex-wrap: wrap;
     padding-bottom: 10px;
+  }
+  .sponsors-box-xl {
+    width: 250px;
+    height: 125px;
+    margin-top: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-left: 1px solid #D3D3D3;
+    border-right: 1px solid #D3D3D3;
+    margin-left: -1px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    &:last-child {
+      border-right: 1px solid #D3D3D3;
+    }
   }
   .sponsors-box-lg {
     width: 200px;
@@ -286,6 +311,15 @@
       font-weight: 300;
       font-size: 16px;
       margin-bottom: 0;
+    }
+  }
+  .sponsor_panel_bottom {
+    a, a:focus, a:hover {
+      color: #666;
+    }
+    span {
+      color: #666;
+      padding: 0 15px;
     }
   }
 }

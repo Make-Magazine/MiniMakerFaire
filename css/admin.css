@@ -43,6 +43,11 @@
   background-color: #ffffff;
 }
 
+/* ADVANCED CUSTOM FIELDS ADMIN STYLES */
+.home-image-carousel-admin .acf-gallery {
+  max-height: 200px;
+}
+
 @media (max-width: 535px) {
   .dm-logo-wrap {
     width: 100%;

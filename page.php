@@ -1,15 +1,13 @@
 <?php get_header(); ?>
 
-<?php get_template_part('template-part', 'head'); ?>
-
-<?php get_template_part('template-part', 'topnav'); ?>
+<?php get_template_part('template-part', 'header'); ?>
 
 <!-- start content container -->
-<div class="container dmbs-content">
+<div class="container">
 
     <div class="row">
 
-        <div class="col-md-9 dmbs-main">
+        <div class="col-md-9">
 
             <?php // theloop
             if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>

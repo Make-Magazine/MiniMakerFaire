@@ -1,58 +1,208 @@
-.dmbs-header {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  padding: 0;
+.flag-banner {
+  width: 100%;
+  height: 15px;
+    background-image: url(../img/bg-border.png);
+    background-repeat: repeat-x;
+    //height: 23px;
+    transform: rotate(180deg);
+}
 
-    .header-logo {
-    }
-    h1 {
-        font-size: 28px;
-    }
 
-  #home-carousel {
-    .carousel-caption {
-      pointer-events: none;
-      h1 {
+/* adjust body when menu is open */
+body.slide-active {
+  overflow-x: hidden
+}
 
-      }
-      h3 {
+/*first child of #page-content so it doesn't shift around*/
+.no-margin-top {
+  margin-top: 0px !important
+}
 
-      }
-    }
+/*wrap the entire page content but not nav inside this div if not a fixed top, don't add any top padding */
+#page-content {
+  position: relative;
+  left: 0;
+}
+#page-content.slide-active {
+  padding-top: 0
+}
+
+/* put toggle bars on the left :: not using button */
+#slide-nav .navbar-toggle {
+  cursor: pointer;
+  position: relative;
+  line-height: 0;
+  float: left;
+  margin: 0;
+  width: 30px;
+  height: 40px;
+  padding: 10px 0 0 0;
+  border: 0;
+  background: transparent;
+}
+
+/* icon bar prettyup - optional */
+#slide-nav .navbar-toggle > .icon-bar {
+  width: 100%;
+  display: block;
+  height: 3px;
+  margin: 5px 0 0 0;
+}
+#slide-nav .navbar-toggle.slide-active .icon-bar {
+  background: orange
+}
+.navbar-header {
+  position: relative
+}
+
+/* un fix the navbar when active so that all the menu items are accessible */
+.navbar.navbar-fixed-top.slide-active {
+  position: relative
+}
+
+.navbar-nav>li>.dropdown-menu {
+  border-radius: 0;
+  border-width: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  >li>a {
+    padding-top: 15px;
+    padding-bottom: 15px;
   }
 }
 
-
-// MENU
-.dmbs-top-menu {
-  .navbar-inverse {
-    background-color: rgba(0,173,239,0.9);
-  }
-  .navbar-inverse .navbar-nav>li>a:hover, 
-  .navbar-inverse .navbar-nav>li>a:focus {
-    color: #ffffff;
-    background-color: #039AD4;
-  }
-  .navbar-inverse .navbar-nav>li>a {
-    font-size: 18px;
-    padding-left: 25px;
-    padding-right: 25px;
-  }
+.navbar-default .navbar-nav>.open>a, 
+.navbar-default .navbar-nav>.open>a:focus, 
+.navbar-default .navbar-nav>.open>a:hover {
+  background-color: transparent;
 }
 
-@media screen and (min-width: 1200px) { 
-}
-@media screen and (min-width: 992px) and (max-width: 1199px) { 
-}
-@media screen and (min-width: 768px) and (max-width: 991px) { 
-}
-@media screen and (max-width: 767px) {
-  .dmbs-header .col-xs-12 {
+/* screw writing importants and shit, just stick it in max width since these classes are not shared between sizes */
+@media (max-width:767px) {
+  #slide-nav .container {
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 100%;
+  }
+  #slide-nav .navbar-header {
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+  #slide-nav .navbar.slide-active {
+    position: absolute;
+    width: 80%;
+    top: -1px;
+    z-index: 1000;
+  }
+  #slide-nav #slidemenu {
+    background: #f7f7f7;
+    left: -100%;
+    width: 80%;
+    min-width: 0;
+    position: absolute;
+    padding-left: 0;
+    z-index: 2;
+    top: -8px;
+    margin: 0;
+  }
+  #slide-nav #slidemenu .navbar-nav {
+    min-width: 0;
+    width: 100%;
+    margin: 0;
+  }
+  #slide-nav #slidemenu .navbar-nav .dropdown-menu li a {
+    min-width: 0;
+    width: 80%;
+    white-space: normal;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    text-align: left;
+  }
+  #slide-nav {
+    border-top: 0
+  }
+  #slide-nav.navbar-default #slidemenu {
+    background: #f7f7f7;
+  }
+
+  /* this is behind the navigation but the navigation is not inside it so that the navigation is accessible and scrolls*/
+  #navbar-height-col {
+    position: fixed;
+    top: 0;
+    height: 100%;
+    bottom: 0;
+    width: 80%;
+    left: -80%;
+    background: #f7f7f7;
+  }
+  #navbar-height-col {
+    background: #f7f7f7;
+    z-index: 1;
+    border: 0;
+  }
+  #slide-nav .navbar-form {
+    width: 100%;
+    margin: 8px 0;
     text-align: center;
-    a {
-      margin-left: auto;
-      margin-right: auto;
-      display: inline-block;
+    overflow: hidden;/*fast clearfixer*/
+  }
+  #slide-nav .navbar-form .form-control {
+    text-align: center
+  }
+  #slide-nav .navbar-form .btn {
+    width: 100%
+  }
+  .navbar-nav>li>a {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    text-align: left;
+  }
+}
+@media (min-width:768px) {
+  #page-content {
+    left: 0 !important
+  }
+  .navbar.navbar-fixed-top.slide-active {
+    position: fixed
+  }
+  .navbar-header {
+    left: 0 !important;
+  }
+  .navbar-default {
+    background-color: #fff;
+    border-width: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+  }
+  .navbar-nav {
+    float: none;
+    display: inline-block;
+    margin-bottom: -5px;
+  }
+  .navbar-nav>li {
+    border-right: 1px solid #e7e7e7;
+    >a {
+      padding-top: 20px;
+      padding-bottom: 18px;
+      border-bottom: 2px solid transparent;
+      &:hover, &:focus, &:active {
+        border-bottom: 2px solid red;
+        box-shadow: 0px 0px 40px 0px #CCC
+      }
+    }
+    &.open>a, &.open>a:focus, &.open>a:active {
+      border-bottom: 2px solid red;
     }
   }
+  .navbar-nav>li:first-child {
+    border-left: 1px solid #e7e7e7;
+  }
+}
+@media screen and (min-width:1200px) {
+}
+@media screen and (min-width:992px) and (max-width:1199px) {
+}
+@media screen and (min-width:768px) and (max-width:991px) {
+}
+@media screen and (max-width:767px) {
 }

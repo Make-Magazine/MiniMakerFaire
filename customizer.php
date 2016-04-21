@@ -33,7 +33,7 @@ function mmf_customizer_settings( $wp_customize ) {
         return wp_kses_post( force_balance_tags( $input ) );
     } 
     $wp_customize->add_control( 'header_date_time_field', array(
-        'label'    => __( 'Enter date and time here like this: "Saturday, May 7, 2016 10AM – 4PM"' ),
+        'label'    => __( 'Enter date and time here like this: "Saturday, May 7, 2016"' ),
         'section'  => 'header_date_time',
         'settings' => 'header_date_time_field',
         'type'     => 'text'
@@ -46,7 +46,7 @@ function mmf_customizer_settings( $wp_customize ) {
         return wp_kses_post( force_balance_tags( $input ) );
     }
     $wp_customize->add_control( 'header_location_field', array(
-        'label'    => __( 'Enter location here like this: "Schurz High School, Chicago, IL"' ),
+        'label'    => __( 'Enter the local location here like this: "Schurz High School"' ),
         'section'  => 'header_date_time',
         'settings' => 'header_location_field',
         'type'     => 'text'
