@@ -18,8 +18,7 @@
         <h2 class="event-date" itemprop="startDate"><i class="fa fa-calendar-o" aria-hidden="true"></i> <?php echo $faire_date ?></h2> <?php
       endif; ?>
 
-      <img class="img-responsive header-logo" src="<?php header_image(); ?>" alt="<?php bloginfo( 'name' ); ?> logo" />
-      <h1 id="event-name"></h1>
+      <img class="img-responsive header-logo" src="<?php echo get_theme_mod( 'header_logo' ); ?>" alt="<?php bloginfo( 'name' ); ?> logo" />
       <?php $call_to_action_text = get_field('call_to_action_text', 22);
       if( $call_to_action_text ): ?>
         <h3 class="call_to_action_text"><?php echo $call_to_action_text ?></h3> <?php

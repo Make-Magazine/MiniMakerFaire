@@ -8,10 +8,31 @@
     width: 430px;
     margin-left: auto;
     margin-right: auto;
-
+    @media(min-width:992px) and (max-width:1199px) {
+      margin-top: 70px;
+    }
+    @media(min-width:768px) and (max-width:991px) {
+      margin-top: 40px;
+    }
+    @media (max-width:767px) {
+      margin-top: 20px;
+    }
     .header-logo {
       width: 100%;
       margin-top: 10px;
+      @media(min-width:992px) and (max-width:1199px) {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      @media(min-width:768px) and (max-width:991px) {
+        width: 65%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      @media (max-width: 768px) {
+        display: none;
+      }
     }
 
     h2.event-location,
@@ -27,9 +48,16 @@
         color: red;
         margin-right: 5px;
       }
+      @media (max-width:767px) {
+        display: block;
+        font-size: 16px;
+      }
     }
     h2.event-date {
       margin-left: 15px;
+      @media (max-width:767px) {
+        margin-top: 5px;
+      }
     }
     .call_to_action_text {
       margin-bottom: 0;
@@ -38,10 +66,15 @@
       font-size: 22px;
     }
   }
-  .carousel-control .glyphicon-chevron-left, 
-  .carousel-control .glyphicon-chevron-right {
-    width: 32px;
-    height: 60px;
+  .carousel-control {
+    @media (max-width:767px) {
+      z-index: 100;
+    }
+    .glyphicon-chevron-left, 
+    .glyphicon-chevron-right {
+      width: 32px;
+      height: 60px;
+    }
   }
 }
 
