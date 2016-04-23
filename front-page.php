@@ -62,29 +62,6 @@
   </div>
 
 
-
-  <?php if(false === get_theme_mod('hompage_wimf_checkbox')) { ?>
-  <!-- WIMF Pannel -->
-  <div class="container std-panel what-is-maker-faire">
-    <div class="row">
-      <h2 class="text-center">What is Maker Faire?</h2>
-    </div>
-    <div class="row">
-      <div class="col-md-10 col-md-offset-1">
-        <p class="text-center">We call it the Greatest Show (& Tell) on Earth. Maker Faire is part science fair, part county fair, and part something entirely new! As a celebration of the Maker Movement, it’s a family-friendly showcase of invention, creativity, and resourcefulness. Faire gathers together tech enthusiasts, crafters, educators, tinkerers, food artisans, hobbyists, engineers, science clubs, artists, students, and commercial exhibitors. Makers come to show their creations and share their learnings. Attendees flock to Maker Faire to glimpse the future and find the inspiration to become Makers themselves.</p>
-      </div>
-    </div>
-  </div>
-  <div class="container panel-hr">
-    <div class="row">
-      <div class="col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
-        <hr class="hr-half" />
-      </div>
-    </div>
-  </div>
-  <!-- End WIMF Pannel -->
-  <?php } ?>
-
   <?php
 
   // check if the flexible content field has rows of data
@@ -98,40 +75,55 @@
       // FEATURED MAKERS
       if( get_row_layout() == 'featured_makers_panel' ):
 
+        $makers_to_show = get_sub_field('makers_to_show');
+        $more_makers_button = get_sub_field('more_makers_button');
+
+        echo '<div class="featured-maker-panel"><div class="container">';
+        if(get_sub_field('title')){
+          echo '<div class="row">
+                  <div class="col-xs-12 padbottom text-center">
+                    <div class="title-w-border">
+                      <h2>' . get_sub_field('title') . '</h2>
+                    </div>
+                  </div>
+                </div>';
+        }
+
         // check if the nested repeater field has rows of data
         if( have_rows('featured_makers') ):
 
-          echo '<div class="container std-panel"><div class="row">';
-          if(get_sub_field('title')){
-            echo '<div class="col-xs-12 text-center padbottom"><h2>' . get_sub_field('title') . '</h2></div>';
-          }
-
-          ?><div class="col-xs-12 text-center padbottom"><h2>Featurd Makers</h2></div><?php
+          echo '<div class="row padbottom">';
 
           // loop through the rows of data
           while ( have_rows('featured_makers') ) : the_row();
 
             $image = get_sub_field('maker_image');
+            $maker = get_sub_field('maker_name');
+            $decription = get_sub_field('maker_short_description');
 
-            echo '<div class="col-xs-6 col-sm-4 text-center">
-                    <img class="img-circle img-responsive" style="margin-left: auto;margin-right: auto;" src="' . $image['url'] . '" alt="' . $image['alt'] . '" />
-                    <br />
-                    <div class="text-center">
-                      <h4>Minerva Tantoco</h4>
-                      <p>Chief Technology Officer, New York City</p>
+            echo '<div class="featured-maker col-xs-6 col-sm-3">
+                    <div><div class="maker-img" style="background-image: url(' . $image["url"] . ');">
+                      
+                    </div></div>
+                    <div class="maker-panel-text">
+                      <h4>' . $maker . '</h4>
+                      <p>' . $decription . '</p>
                     </div>
                   </div>';
 
           endwhile;
 
-          echo '</div></div>
-                <div class="container panel-hr">
-                  <div class="row">
-                    <div class="col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
-                      <hr class="hr-half" />
+          echo '</div>';
+
+          if(get_sub_field('more_makers_button')){
+            echo '<div class="row padbottom">
+                    <div class="col-xs-12 padbottom text-center">
+                      <a class="btn btn-w-ghost" href="' . $more_makers_button . '">More Makers</a>
                     </div>
-                  </div>
-                </div>';
+                  </div>';
+          }
+
+          echo '</div><div class="flag-banner"></div></div>';
 
         endif;
 
@@ -204,6 +196,30 @@
         $widget_radio = get_sub_field('show_widget_area_1');
         if( $widget_radio == 'show' ):
           dynamic_sidebar( 'page_widget_area_1' );
+        endif;
+
+
+
+      // WHAT IS MAKER FAIRE PANEL
+      elseif( get_row_layout() == 'what_is_maker_faire' ):
+
+        $widget_radio = get_sub_field('show_what_is_maker_faire');
+        if( $widget_radio == 'show' ):
+          echo '<div class="what-is-maker-faire">
+                  <div class="container">
+                    <h2 class="text-center">What is Maker Faire?</h2>
+                    <div class="hr-wimf"><hr /></div>
+                  </div>
+                  <div class="container">
+                    <div class="col-md-10 col-md-offset-1">
+                      <p class="text-center">We call it the Greatest Show (& Tell) on Earth. Maker Faire is part science fair, part county fair, and part something entirely new! As a celebration of the Maker Movement, it’s a family-friendly showcase of invention, creativity, and resourcefulness. Faire gathers together tech enthusiasts, crafters, educators, tinkerers, food artisans, hobbyists, engineers, science clubs, artists, students, and commercial exhibitors. Makers come to show their creations and share their learnings. Attendees flock to Maker Faire to glimpse the future and find the inspiration to become Makers themselves.</p>
+                    </div>
+                  </div>
+                  <div class="wimf-border">
+                    <div class="wimf-triangle"></div>
+                  </div>
+                  <img src="' . get_bloginfo('template_directory') . '/img/makey.png" alt="Maker Faire information Makey icon" />
+                </div>';
         endif;
 
 

@@ -13,9 +13,7 @@ body {
 
 h1, h2, h3, h4, h5, h6, {
   font-family: 'Roboto Slab', serif;
-  font-weight: inherit;
-  line-height: inherit;
-  color: inherit;
+  font-weight: 300;
 }
 
 h1 { 
@@ -23,6 +21,9 @@ h1 {
 }
 h2 { 
   font-size: 2.25em; // 36px
+  @media (max-width:767px) {
+    font-size: 1.6em;
+  }
 }
 h3 { 
   font-size: 1.875em; // 30px
@@ -46,4 +47,5 @@ p {
   font-size: 1em; // 16px
   line-height: 1.5em; // 24px
   color: #333;
+  font-weight: 300;
 }
