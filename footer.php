@@ -1,8 +1,8 @@
-  <div class="dmbs-footer">
+  <footer class="gmf-footer">
     <div class="container">
-      <div class="row">
+      <div class="row padbottom">
         <?php if ( has_nav_menu( 'footer_menu' ) ) : ?>
-        <div class="col-sm-6">
+        <div class="col-sm-6 footer-right-border">
           <div class="footer-logo-div">
             <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
               <img class="img-responsive footer-logos" src="<?php header_image(); ?>" alt="<?php bloginfo( 'name' ); ?> logo" />
@@ -19,6 +19,30 @@
               'walker'            => new wp_bootstrap_navwalker())
             );
           ?>
+          <div class="social-network-container">
+            <ul class="social-network social-circle">
+              <li>
+                <a href="#" class="icoFacebook" title="Facebook" target="_blank">
+                  <i class="fa fa-facebook"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="icoTwitter" title="Twitter" target="_blank">
+                  <i class="fa fa-twitter" target="_blank"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="icoPinterest" title="Pinterest" target="_blank">
+                  <i class="fa fa-pinterest-p" target="_blank"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="icoGoogle-plus" title="Google+" target="_blank">
+                  <i class="fa fa-google-plus" target="_blank"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
         <?php endif; ?>
 
@@ -60,17 +84,41 @@
                   <a href="https://readerservices.makezine.com/mk/default.aspx" target="_blank">Subscribe to Make:</a>
                 </li>
               </ul>
+              <div class="social-network-container">
+                <ul class="social-network social-circle">
+                  <li>
+                    <a href="//www.facebook.com/makerfaire" class="icoFacebook" title="Facebook" target="_blank">
+                      <i class="fa fa-facebook"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="//twitter.com/makerfaire" class="icoTwitter" title="Twitter" target="_blank">
+                      <i class="fa fa-twitter" target="_blank"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="//www.pinterest.com/makemagazine/maker-faire/" class="icoPinterest" title="Pinterest" target="_blank">
+                      <i class="fa fa-pinterest-p" target="_blank"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="//plus.google.com/104410464300110463062/posts" class="icoGoogle-plus" title="Google+" target="_blank">
+                      <i class="fa fa-google-plus" target="_blank"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
       </div>
       <div class="row padtop">
         <div class="col-xs-12">
-          <p class="small text-muted text-center"><?php bloginfo( 'name' ); ?> is independently organized and operated under license from <a href="http://makermedia.com/" target="_blank">Maker Media, Inc.</a></p>
+          <p class="copyright-footer text-center"><?php bloginfo( 'name' ); ?> is independently organized and operated under license from Maker Media, Inc.</p>
         </div>
       </div>
     </div>
-  </div>
+  </footer>
 </div>
 <!-- end main container -->
 <?php wp_footer(); ?>

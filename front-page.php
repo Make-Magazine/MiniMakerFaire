@@ -107,7 +107,7 @@
                     </div></div>
                     <div class="maker-panel-text">
                       <h4>' . $maker . '</h4>
-                      <p>' . $decription . '</p>
+                      <p class="hidden-xs">' . $decription . '</p>
                     </div>
                   </div>';
 
@@ -136,36 +136,48 @@
         $args = array( 'numberposts' => $post_feed_quantity, 'post_status' => 'publish' );
         $recent_posts = wp_get_recent_posts( $args );
 
-        echo '<div class="container std-panel recent-post-panel"><div class="row">';
+        echo '<div class="recent-post-panel"><div class="container">';
 
         if(get_sub_field('title')){
-          echo '<div class="col-xs-12 text-center padbottom"><h2>' . get_sub_field('title') . '</h2></div>';
-        }
-
-        foreach( $recent_posts as $recent ){
-          echo '<div class="col-xs-6 col-sm-4">
-                  <a href="' . get_permalink($recent["ID"]) . '">';
-                  if ( has_post_thumbnail() ) {
-                    $thumb_id = get_post_thumbnail_id($recent['ID']);
-                    $url = wp_get_attachment_url($thumb_id);
-                    echo "<div class='recent-post-img'><img src='".$url."' class='img-responsive' /></div>";
-                  }
-
-          echo   '<h4>' . $recent["post_title"] . '</h4>
-                  <p>' . substr($recent["post_content"], 0 , 150) . '...</p>
-                  <p><strong>Read More <i class="fa fa-chevron-right" aria-hidden="true"></i></strong></p>
-                  </a>
+          echo '<div class="row padbottom">
+                  <div class="col-xs-12 text-center">
+                    <img class="robot-head" src="' . get_bloginfo("template_directory") . '/img/news_robot.png" alt="Robot head icon" />
+                    <div class="title-w-border">
+                      <h2>' . get_sub_field('title') . '</h2>
+                    </div>
+                  </div>
                 </div>';
         }
 
-        echo '</div></div>
-              <div class="container panel-hr">
-                <div class="row">
-                  <div class="col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
-                    <hr class="hr-half" />
+        echo '<div class="row">';
+
+        foreach( $recent_posts as $recent ){
+          echo '<div class="recent-post-post col-xs-12 col-sm-3">
+                  <div class="recent-post-inner">
+                    <a href="' . get_permalink($recent["ID"]) . '">';
+                    if ( has_post_thumbnail() ) {
+                      $thumb_id = get_post_thumbnail_id($recent['ID']);
+                      $url = wp_get_attachment_url($thumb_id);
+                      echo "<div class='recent-post-img' style='background-image: url(" . $url . ");'></div>";
+                    }
+
+          echo  '     <div class="recent-post-text">
+                        <h4>' . $recent["post_title"] . '</h4>
+                        <p class="recent-post-date">' . $recent["post_date"] . '</p>
+                        <p>' . substr($recent["post_content"], 0 , 150) . '...</p>
+                      </div>
+                    </a>
                   </div>
+                </div>';
+        }
+
+        echo '<div class="row padbottom">
+                <div class="col-xs-12 padtop padbottom text-center">
+                  <a class="btn btn-b-ghost" href="/blog">More News</a>
                 </div>
               </div>';
+
+        echo '</div></div><div class="flag-banner"></div></div>';
 
 
       // 2 COLUMN LAYOUT
@@ -173,20 +185,23 @@
 
         $column_1 = get_sub_field('column_1');
         $column_2 = get_sub_field('column_2');
-        echo '<div class="container std-panel"><div class="row">';
-        if(get_sub_field('title')){
-          echo '<div class="col-xs-12 text-center padbottom"><h2>' . get_sub_field('title') . '</h2></div>';
-        }
-        echo '<div class="col-sm-6">' . $column_1 . '</div>';
-        echo '<div class="col-sm-6">' . $column_2 . '</div>';
+        echo '<div class="content-panel">
+                <div class="container">';
 
-        echo '</div></div>
-              <div class="container panel-hr">
-                <div class="row">
-                  <div class="col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
-                    <hr class="hr-half" />
+        if(get_sub_field('title')){
+          echo '  <div class="row">
+                    <div class="col-xs-12 text-center padbottom">
+                      <h2>' . get_sub_field('title') . '</h2>
+                    </div>
+                  <div class="row">';
+        }
+
+        echo '    <div class="row">
+                    <div class="col-sm-6">' . $column_1 . '</div>
+                    <div class="col-sm-6">' . $column_2 . '</div>
                   </div>
                 </div>
+                <div class="flag-banner"></div>
               </div>';
 
 
@@ -309,13 +324,6 @@
                   if(!empty($sponsor_panel_field_3)){ echo '<a href="' . $sponsor_panel_field_3 . '">Become a Sponsor</a><span>&bull;</span>';}
           echo '<a href="/sponsors">All Sponsors</a></p>
                 </div>
-              </div>
-            </div>
-          </div>
-          <div class="container panel-hr">
-            <div class="row">
-              <div class="col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
-                <hr class="hr-half" />
               </div>
             </div>
           </div>

@@ -203,3 +203,44 @@ a.btn.disabled,fieldset[disabled] a.btn {
     background-color: rgba(255, 255, 255, 0.2);
     border-color: #fff;
 }
+
+/* btn-b-ghost */
+.btn-b-ghost {
+    color: #333;
+    background-color: transparent;
+    border: 1px solid #00AEEF;
+    padding: 6px 25px;
+}
+
+.btn-b-ghost:focus,.btn-b-ghost.focus {
+    color: #333;
+    background-color: rgba(0, 174, 239, 0.3);
+    border-color: #00AEEF;
+}
+
+.btn-b-ghost:hover {
+    color: #333;
+    background-color: rgba(0, 174, 239, 0.3);
+    border-color: #00AEEF;
+}
+
+.btn-b-ghost:active,.btn-b-ghost.active,.open>.dropdown-toggle.btn-b-ghost {
+    color: #333;
+    background-color: rgba(0, 174, 239, 0.3);
+    border-color: #00AEEF;
+}
+
+.btn-b-ghost:active:hover,.btn-b-ghost.active:hover,.open>.dropdown-toggle.btn-b-ghost:hover,.btn-b-ghost:active:focus,.btn-b-ghost.active:focus,.open>.dropdown-toggle.btn-b-ghost:focus,.btn-b-ghost:active.focus,.btn-b-ghost.active.focus,.open>.dropdown-toggle.btn-b-ghost.focus {
+    color: #333;
+    background-color: rgba(0, 174, 239, 0.4);
+    border-color: #00AEEF;
+}
+
+.btn-b-ghost:active,.btn-b-ghost.active,.open>.dropdown-toggle.btn-b-ghost {
+    background-image: none
+}
+
+.btn-b-ghost.disabled:hover,.btn-b-ghost[disabled]:hover,fieldset[disabled] .btn-b-ghost:hover,.btn-b-ghost.disabled:focus,.btn-b-ghost[disabled]:focus,fieldset[disabled] .btn-b-ghost:focus,.btn-b-ghost.disabled.focus,.btn-b-ghost[disabled].focus,fieldset[disabled] .btn-b-ghost.focus {
+    background-color: rgba(0, 174, 239, 0.2);
+    border-color: #00AEEF;
+}
