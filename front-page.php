@@ -2,9 +2,6 @@
 
 <?php get_template_part('template-part', 'header-home'); ?>
 
-<!-- start content container -->
-<div class="body-content">
-
   <div class="slideshow-panel">
 
     <div class="header-logo-div text-center" itemprop="event" itemscope itemtype="http://schema.org/Event">
@@ -80,11 +77,9 @@
 
         echo '<div class="featured-maker-panel"><div class="container">';
         if(get_sub_field('title')){
-          echo '<div class="row">
-                  <div class="col-xs-12 padbottom text-center">
-                    <div class="title-w-border">
-                      <h2>' . get_sub_field('title') . '</h2>
-                    </div>
+          echo '<div class="row text-center">
+                  <div class="title-w-border-y">
+                    <h2>' . get_sub_field('title') . '</h2>
                   </div>
                 </div>';
         }
@@ -139,12 +134,10 @@
         echo '<div class="recent-post-panel"><div class="container">';
 
         if(get_sub_field('title')){
-          echo '<div class="row padbottom">
-                  <div class="col-xs-12 text-center">
-                    <img class="robot-head" src="' . get_bloginfo("template_directory") . '/img/news_robot.png" alt="Robot head icon" />
-                    <div class="title-w-border">
-                      <h2>' . get_sub_field('title') . '</h2>
-                    </div>
+          echo '<div class="row padbottom text-center">
+                  <img class="robot-head" src="' . get_bloginfo("template_directory") . '/img/news_robot.png" alt="Robot head icon" />
+                  <div class="title-w-border-r">
+                    <h2>' . get_sub_field('title') . '</h2>
                   </div>
                 </div>';
         }
@@ -193,7 +186,7 @@
                     <div class="col-xs-12 text-center padbottom">
                       <h2>' . get_sub_field('title') . '</h2>
                     </div>
-                  <div class="row">';
+                  </div>';
         }
 
         echo '    <div class="row">
@@ -222,12 +215,15 @@
         if( $widget_radio == 'show' ):
           echo '<div class="what-is-maker-faire">
                   <div class="container">
-                    <h2 class="text-center">What is Maker Faire?</h2>
-                    <div class="hr-wimf"><hr /></div>
-                  </div>
-                  <div class="container">
-                    <div class="col-md-10 col-md-offset-1">
-                      <p class="text-center">We call it the Greatest Show (& Tell) on Earth. Maker Faire is part science fair, part county fair, and part something entirely new! As a celebration of the Maker Movement, it’s a family-friendly showcase of invention, creativity, and resourcefulness. Faire gathers together tech enthusiasts, crafters, educators, tinkerers, food artisans, hobbyists, engineers, science clubs, artists, students, and commercial exhibitors. Makers come to show their creations and share their learnings. Attendees flock to Maker Faire to glimpse the future and find the inspiration to become Makers themselves.</p>
+                    <div class="row text-center">
+                      <div class="title-w-border-y">
+                        <h2>What is Maker Faire?</h2>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-10 col-md-offset-1">
+                        <p class="text-center">We call it the Greatest Show (& Tell) on Earth. Maker Faire is part science fair, part county fair, and part something entirely new! As a celebration of the Maker Movement, it’s a family-friendly showcase of invention, creativity, and resourcefulness. Faire gathers together tech enthusiasts, crafters, educators, tinkerers, food artisans, hobbyists, engineers, science clubs, artists, students, and commercial exhibitors. Makers come to show their creations and share their learnings. Attendees flock to Maker Faire to glimpse the future and find the inspiration to become Makers themselves.</p>
+                      </div>
                     </div>
                   </div>
                   <div class="wimf-border">
@@ -236,6 +232,22 @@
                   <img src="' . get_bloginfo('template_directory') . '/img/makey.png" alt="Maker Faire information Makey icon" />
                 </div>';
         endif;
+
+
+      // CTA PANEL
+      elseif( get_row_layout() == 'call_to_action_panel' ):
+
+        $cta_title = get_sub_field('text');
+        $cta_url = get_sub_field('url');
+        echo '<div class="cta-panel">
+                <div class="container">
+                  <div class="row text-center">
+                    <div class="col-xs-12">
+                      <h3><a href="' . $cta_url . '">' . $cta_title . ' <i class="fa fa-chevron-right" aria-hidden="true"></i></a></h3>
+                    </div>
+                  </div>
+                </div>
+              </div>';
 
 
 
@@ -354,8 +366,55 @@
 
   ?>
 
-</div>
-<!-- end content container -->
+
+
+  <?php // FIND OUT MORE PANEL ?>
+  <div class="fom-panel">
+    <div class="container">
+      <div class="row text-center">
+        <div class="title-w-border-y">
+          <h2 class="text-center">Find Out More</h2>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-6 col-sm-4 text-center">
+          <a href="//help.makermedia.com/hc/en-us/categories/200341459-Make-Magazine" target="_blank">
+            <img src="http://lorempixel.com/600/600/" alt="Click here to get subscritions to Make: Magazine" class="img-responsive" />
+            <p>Get Make: Magazine</p>
+          </a>
+        </div>
+        <div class="col-xs-6 col-sm-4 text-center">
+          <a href="//makerfaire.com/map/" target="_blank">
+            <img src="http://lorempixel.com/600/600/" alt="Click here to see our global Maker Faires" class="img-responsive" />
+            <p>Global Maker Faires</p>
+          </a>
+        </div>
+        <div class="col-xs-6 col-sm-4 text-center">
+          <img src="http://lorempixel.com/600/600/" class="img-responsive" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <?php // NEWSLETTER PANEL ?>
+  <div class="newsletter-panel">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-6">
+          <p><strong>Stay in Touch:</strong> Get Global, Local, and Global Maker Faire Community updates.</p>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+          <form class="form-inline">
+            <input class="form-control nl-panel-input" name="email" placeholder="Enter your email" type="email" required>
+            <input class="form-control btn-w-ghost" value="GO" type="submit">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 
 <?php get_footer(); ?>
 
