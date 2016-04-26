@@ -150,11 +150,13 @@
 
 // SPONSOR SLIDER FUNCTION
 .sponsor-slide {
-
+  padding: 15px 30px;
+  .title-w-border-r {
+    margin-bottom: 0;
+  }
   .sponsor_panel_title {
     p {
       font-size: 18px;
-      margin-top: 5px;
     }
   }
   h3.sponsor-slide-title {
@@ -316,10 +318,16 @@
   .sponsor_panel_bottom {
     a, a:focus, a:hover {
       color: #666;
+      @media (max-width: 767px) { 
+        display: block;
+      }
     }
     span {
       color: #666;
       padding: 0 15px;
+      @media (max-width: 767px) { 
+        display: none;
+      }
     }
   }
 }

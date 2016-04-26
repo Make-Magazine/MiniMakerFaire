@@ -1,4 +1,4 @@
-  <div class="flag-banner"></div>
+  <div class="flag-banner header-flag"></div>
 
   <nav class="navbar navbar-default" role="navigation" id="slide-nav">
     <div class="container text-center">

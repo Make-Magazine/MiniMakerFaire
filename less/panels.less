@@ -16,7 +16,12 @@
     }
     @media (max-width:767px) {
       margin-top: 20px;
+      margin-top: 8vw;
       width: auto;
+    }
+    @media (max-width:480px) {
+      margin-top: 10px;
+      margin-top: 5vw;
     }
     .header-logo {
       width: 100%;
@@ -65,16 +70,24 @@
       color: #fff;
       font-family: Roboto, "Helvetica Neue", Helvetica, sans-serif;
       font-size: 22px;
+      @media (max-width:767px) {
+        margin-top: 10px;
+      }
     }
   }
   .carousel-control {
     @media (max-width:767px) {
       z-index: 100;
+      width: 10%;
     }
     .glyphicon-chevron-left, 
     .glyphicon-chevron-right {
       width: 32px;
       height: 60px;
+      @media (max-width:767px) {
+        width: 16px;
+        height: 30px;
+      }
     }
   }
 }
@@ -110,12 +123,20 @@
     position: absolute;
     left: 15%;
     margin-top: -106px;
+    @media (max-width:767px) {
+      width: 85px;
+      left: 10%;
+      margin-top: -90px;
+    }
   }
 }
 
 
 .recent-post-panel {
   padding-top: 10px;
+  .container {
+    padding-bottom: 15px;
+  }
   .robot-head {
     width: 60px;
     display: block;
@@ -124,6 +145,12 @@
   }
   .recent-post-post {
     margin-bottom: 20px;
+    @media (max-width:767px) {
+      display: none;
+      &:first-child, &:nth-child(2) {
+        display: block;
+      }
+    }
     a:hover {
       text-decoration: none;
     }
@@ -181,8 +208,25 @@
     }
     .recent-post-text {
       padding: 15px 15px 30px;
-      height: 210px;
       border-radius: 0 0 5px 5px;
+      height: 210px;
+      @media (min-width:992px) and (max-width:1199px) {
+        height: 225px;
+      }
+      @media (min-width:768px) and (max-width:991px) {
+        .recent-post-descripton {
+          margin-bottom: 0;
+          font-size: 13px;
+          line-height: 1.3em;
+        }
+      }
+      @media (max-width:767px) {
+        padding: 15px;
+        height: auto;
+      }
+      .recent-post-descripton::after { 
+        content: "...";
+      }
     }
   }
 }
@@ -227,7 +271,7 @@
       height: 126px;
       margin-top: 15px;
       @media (max-width:767px) {
-        height: 71px;
+        height: 52px;
       }
       h4 {
         color: #fff;
@@ -262,7 +306,19 @@
 
 .fom-panel {
   background: linear-gradient(to right, #00A3DA,#00B7E3,#00A3DA);
-  padding: 15px 0 30px;
+  padding: 15px 0 20px;
+  .col-sm-4 {
+    margin-bottom: 15px;
+  }
+  img {
+    padding: 25px;
+    @media (min-width:992px) and (max-width:1199px) {
+      padding: 15px;
+    }
+    @media (max-width:991px) {
+      padding: 0;
+    }
+  }
   a:hover {
     text-decoration: none;
   }
@@ -302,9 +358,15 @@
       width: 70%;
       max-width: 350px;
       margin-right: 15px;
+      @media (max-width:767px) {
+        width: 100%;
+        margin-right: 0;
+        max-width: none;
+        margin-bottom: 15px;
+      }
     }
     .btn-w-ghost {
-      
+
     }
   }
 }

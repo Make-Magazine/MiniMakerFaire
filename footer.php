@@ -46,7 +46,7 @@
         </div>
         <?php endif; ?>
 
-        <div class="col-sm-6 hidden-xs">
+        <div class="col-sm-6 footer-right hidden-xs">
           <div class="footer-logo-div">
             <a href="http://makerfaire.com/" target="_blank">
               <img class="img-responsive footer-logos" src="<?php echo get_bloginfo('template_directory');?>/img/makerfaire.gif" alt="Maker Faire logo" />
@@ -70,7 +70,10 @@
               </ul>
             </div>
             <div class="col-xs-6">
-              <ul class="list-unstyled">
+              <ul class="list-unstyled footer-right-col">
+                <li>
+                  <p>Explore Making</p>
+                </li>
                 <li>
                   <a href="http://makezine.com/" target="_blank">Make: News &amp; Projects</a>
                 </li>
