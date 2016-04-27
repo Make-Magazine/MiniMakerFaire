@@ -107,13 +107,38 @@ body.slide-active {
   }
 }
 
-.header-cta-button {
-  position: absolute;
-  margin-top: 15px;
-  margin-left: 25px;
-  padding: 6px 20px;
-  text-transform: uppercase;
-  font-size: 12px;
+#header-cta-button {
+  vertical-align: text-bottom;
+  margin-left: 20px;
+  display: inline-block;
+  align-self: center;
+  @media (max-width:767px) {
+    display: none;
+  }
+  a {
+    padding: 6px 20px;
+    text-transform: uppercase;
+    font-size: 12px;
+  }
+}
+
+.nav-not-home {
+  @media (min-width:768px) {
+    box-shadow: 0px 0px 5px 2px #CCC;
+  }
+  #nav-not-home-logo {
+    display: inline-block;
+    vertical-align: text-bottom;
+    margin-right: 20px;
+    align-self: center;
+    img {
+      max-height: 50px;
+      max-width: 160px;
+    }
+    @media (max-width:767px) {
+      display: none;
+    }
+  }
 }
 
 
@@ -221,6 +246,10 @@ body.slide-active {
     .header-logo {
       display: none;
     }
+  }
+  .nav-flex {
+    display: flex;
+    justify-content: space-around;
   }
   .navbar-default {
     background-color: #fff;

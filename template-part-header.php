@@ -1,33 +1,53 @@
-<div class="dmbs-container">
+  <div class="flag-banner header-flag"></div>
 
+  <nav class="navbar navbar-default nav-not-home" role="navigation" id="slide-nav">
+    <div class="container text-center nav-flex">
+      <div class="navbar-header">
+        <a class="navbar-toggle"> 
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <img class="header-logo" src="<?php header_image(); ?>" alt="<?php bloginfo( 'name' ); ?> logo" />
+      </div>
 
-    <?php if ( has_nav_menu( 'main_menu' ) ) : ?>
+      <div id="nav-not-home-logo">
+        <a href="/">
+          <img src="<?php header_image(); ?>" alt="<?php bloginfo( 'name' ); ?> logo" />
+        </a>
+      </div>
 
-        <div class="dmbs-top-menu">
-            <nav class="navbar navbar-inverse" role="navigation">
-                <div class="container">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-1-collapse">
-                            <span class="sr-only"><?php _e('Toggle navigation','devdmbootstrap3'); ?></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                    </div>
+      <?php
+      wp_nav_menu( array(
+              'theme_location'    => 'main_menu',
+              'depth'             => 2,
+              'container'         => 'div',
+              'container_id'      => 'slidemenu',
+              'container_class'   => '',
+              'menu_class'        => 'nav navbar-nav',
+              'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
+              'walker'            => new wp_bootstrap_navwalker())
+      );
 
-                    <?php
-                    wp_nav_menu( array(
-                            'theme_location'    => 'main_menu',
-                            'depth'             => 2,
-                            'container'         => 'div',
-                            'container_class'   => 'collapse navbar-collapse navbar-1-collapse',
-                            'menu_class'        => 'nav navbar-nav',
-                            'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
-                            'walker'            => new wp_bootstrap_navwalker())
-                    );
-                    ?>
-                </div>
-            </nav>
-        </div>
+      $header_cta_radio = get_theme_mod( 'header_cta_radio' );
+      $header_cta_text = get_theme_mod( 'header_cta_text' );
+      $header_cta_link = esc_url( get_theme_mod( 'header_cta_link' ) );
+      if( $header_cta_radio != '' ) {
+        switch ( $header_cta_radio ) {
+          case 'value1':
+              echo '<div id="header-cta-button"><a class="btn btn-primary" href="';
+              echo $header_cta_link;
+              echo '">';
+              echo $header_cta_text;
+              echo '</a></div>';
+              break;
+          case 'value2':
+              break;
+        }
+      } ?>
 
-    <?php endif; ?>
+    </div>
+  </nav>
+
+  <div id="page-content">

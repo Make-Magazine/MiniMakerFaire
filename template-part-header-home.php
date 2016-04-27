@@ -1,7 +1,7 @@
   <div class="flag-banner header-flag"></div>
 
   <nav class="navbar navbar-default" role="navigation" id="slide-nav">
-    <div class="container text-center">
+    <div class="container text-center nav-flex">
       <div class="navbar-header">
         <a class="navbar-toggle"> 
           <span class="sr-only">Toggle navigation</span>
@@ -30,11 +30,11 @@
       if( $header_cta_radio != '' ) {
         switch ( $header_cta_radio ) {
           case 'value1':
-              echo '<a class="header-cta-button btn btn-primary" href="';
+              echo '<div id="header-cta-button"><a class="btn btn-primary" href="';
               echo $header_cta_link;
               echo '">';
               echo $header_cta_text;
-              echo '</a>';
+              echo '</a></div>';
               break;
           case 'value2':
               break;

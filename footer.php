@@ -1,7 +1,6 @@
   <footer class="gmf-footer">
     <div class="container">
       <div class="row padbottom">
-        <?php if ( has_nav_menu( 'footer_menu' ) ) : ?>
         <div class="col-sm-6 footer-right-border">
           <div class="footer-logo-div">
             <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
@@ -9,6 +8,7 @@
             </a>
           </div>
           <?php
+          if ( has_nav_menu( 'footer_menu' ) ) :
             wp_nav_menu( array(
               'theme_location'    => 'footer_menu',
               'depth'             => 2,
@@ -18,7 +18,7 @@
               'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
               'walker'            => new wp_bootstrap_navwalker())
             );
-          ?>
+          endif; ?>
           <div class="social-network-container">
             <ul class="social-network social-circle">
               <li>
@@ -44,7 +44,6 @@
             </ul>
           </div>
         </div>
-        <?php endif; ?>
 
         <div class="col-sm-6 footer-right hidden-xs">
           <div class="footer-logo-div">
