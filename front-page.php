@@ -19,7 +19,7 @@
   }
 ?>
 
-  <div class="slideshow-panel">
+  <section class="slideshow-panel">
 
     <div class="header-logo-div text-center" itemprop="event" itemscope itemtype="http://schema.org/Event">
       <?php $faire_location = get_field('faire_location', $home_ID);
@@ -73,7 +73,7 @@
 
     <?php endif; ?>
  
-  </div>
+  </section>
 
 
   <?php
@@ -92,7 +92,7 @@
         $makers_to_show = get_sub_field('makers_to_show');
         $more_makers_button = get_sub_field('more_makers_button');
 
-        echo '<div class="featured-maker-panel"><div class="container">';
+        echo '<section class="featured-maker-panel"><div class="container">';
         if(get_sub_field('title')){
           echo '<div class="row text-center">
                   <div class="title-w-border-y">
@@ -134,7 +134,7 @@
                   </div>';
           }
 
-          echo '</div><div class="flag-banner"></div></div>';
+          echo '</div><div class="flag-banner"></div></section>';
 
         endif;
 
@@ -147,7 +147,7 @@
         $args = array( 'numberposts' => $post_feed_quantity, 'post_status' => 'publish' );
         $recent_posts = wp_get_recent_posts( $args );
 
-        echo '<div class="recent-post-panel"><div class="container">';
+        echo '<section class="recent-post-panel"><div class="container">';
 
         if(get_sub_field('title')){
           echo '<div class="row padbottom text-center">
@@ -162,7 +162,7 @@
 
         foreach( $recent_posts as $recent ){
           echo '<div class="recent-post-post col-xs-12 col-sm-3">
-                  <div class="recent-post-inner">
+                  <article class="recent-post-inner">
                     <a href="' . get_permalink($recent["ID"]) . '">';
                     if ( has_post_thumbnail() ) {
                       $thumb_id = get_post_thumbnail_id($recent['ID']);
@@ -176,7 +176,7 @@
                         <p class="recent-post-descripton">' . substr($recent["post_content"], 0 , 150) . '</p>
                       </div>
                     </a>
-                  </div>
+                  </article>
                 </div>';
         }
 
@@ -184,7 +184,7 @@
                 <a class="btn btn-b-ghost" href="/blog">More News</a>
               </div>';
 
-        echo '</div></div><div class="flag-banner"></div></div>';
+        echo '</div></div><div class="flag-banner"></div></section>';
 
 
       // 2 COLUMN LAYOUT
@@ -194,7 +194,7 @@
         $column_2 = get_sub_field('column_2');
         $cta_button = get_sub_field('cta_button');
         $cta_button_url = get_sub_field('cta_button_url');
-        echo '<div class="content-panel">
+        echo '<section class="content-panel">
                 <div class="container">';
 
         if(get_sub_field('title')){
@@ -218,16 +218,8 @@
 
         echo '  </div>
                 <div class="flag-banner"></div>
-              </div>';
+              </section>';
 
-
-      // WIDGET AREA
-      elseif( get_row_layout() == 'widget_area_1' ):
-
-        $widget_radio = get_sub_field('show_widget_area_1');
-        if( $widget_radio == 'show' ):
-          dynamic_sidebar( 'page_widget_area_1' );
-        endif;
 
 
 
@@ -236,7 +228,7 @@
 
         $widget_radio = get_sub_field('show_what_is_maker_faire');
         if( $widget_radio == 'show' ):
-          echo '<div class="what-is-maker-faire">
+          echo '<section class="what-is-maker-faire">
                   <div class="container">
                     <div class="row text-center">
                       <div class="title-w-border-y">
@@ -253,7 +245,7 @@
                     <div class="wimf-triangle"></div>
                   </div>
                   <img src="' . get_bloginfo('template_directory') . '/img/makey.png" alt="Maker Faire information Makey icon" />
-                </div>';
+                </section>';
         endif;
 
 
@@ -262,7 +254,7 @@
 
         $cta_title = get_sub_field('text');
         $cta_url = get_sub_field('url');
-        echo '<div class="cta-panel">
+        echo '<section class="cta-panel">
                 <div class="container">
                   <div class="row text-center">
                     <div class="col-xs-12">
@@ -270,7 +262,7 @@
                     </div>
                   </div>
                 </div>
-              </div>';
+              </section>';
 
 
 
@@ -284,7 +276,7 @@
         // check if the nested repeater field has rows of data
         if( have_rows('sponsors', $sponsor_ID) ):
 
-        echo '<div class="sponsor-slide">
+        echo '<section class="sponsor-slide">
                 <div class="container">
                   <div class="row sponsor_panel_title">
                     <div class="col-xs-12 text-center">
@@ -362,7 +354,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </section>
           <script>jQuery(".sponsor-slide .carousel-inner .item:first-child").addClass("active");
                   jQuery(function() {
                     var title = jQuery(".item.active .sponsors-type").html();
@@ -393,7 +385,7 @@
 
 
   <?php // FIND OUT MORE PANEL ?>
-  <div class="fom-panel">
+  <aside class="fom-panel">
     <div class="container">
       <div class="row text-center">
         <div class="title-w-border-y">
@@ -419,11 +411,11 @@
         </div>
       </div>
     </div>
-  </div>
+  </aside>
 
 
   <?php // NEWSLETTER PANEL ?>
-  <div class="newsletter-panel">
+  <section class="newsletter-panel">
     <div class="container">
 
       <div class="row">
@@ -438,7 +430,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
 <?php get_footer(); ?>
 
