@@ -27,12 +27,6 @@ get_template_part('template-part', 'header'); ?>
       </div>
     <?php endif; ?>
 
-<!--     <div id="left-trigger">
-      <img src="" alt="Carousel trigger left" />
-    </div>
-    <div id="right-trigger">
-      <img src="" alt="Carousel trigger right" />
-    </div> -->
     <a id="left-trigger" class="left carousel-control" href="#" role="button" data-slide="prev">
       <img class="glyphicon-chevron-right" src="<?php echo get_bloginfo('template_directory');?>/img/arrow_left.png" alt="Image Carousel button left" />
       <span class="sr-only">Previous</span>
@@ -52,41 +46,41 @@ get_template_part('template-part', 'header'); ?>
     <form class="form-inline">
       <label for="mtm-search-input">Search:</label>
       <input ng-model="makerSearch" id="mtm-search-input" class="form-control" placeholder="Looking for a specific Exhibit or Maker?" type="text">
-      <input class="form-control btn-w-ghost" value="GO" type="submit">
+      <!--input class="form-control btn-w-ghost" value="GO" type="submit"-->
     </form>
   </div>
 
-  <div class="mtm-filter container">
-    <div class="mtm-filter-view">
-      <span class="mtm-view-by">View by:</span>
-      <a href="#" class="mtm-filter-g"><i class="fa fa-picture-o" aria-hidden="true"></i> GALLERY</a>
-      <span class="mtm-pipe">|</span>
-      <a href="#" class="mtm-filter-l"><i class="fa fa-th-list" aria-hidden="true"></i> LIST</a>
+  <div ng-controller="mtmMakers">
+    <div class="mtm-filter container">
+      <div class="mtm-filter-view">
+        <span class="mtm-view-by">View by:</span>
+        <a href="#" class="mtm-filter-g"><i class="fa fa-picture-o" aria-hidden="true"></i> GALLERY</a>
+        <span class="mtm-pipe">|</span>
+        <a href="#" class="mtm-filter-l"><i class="fa fa-th-list" aria-hidden="true"></i> LIST</a>
+      </div>
+
+      <div class="dropdown">
+        <button class="btn btn-link dropdown-toggle" type="button" id="mtm-dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          Filter by Topics
+          <i class="fa fa-chevron-down" aria-hidden="true"></i>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="mtm-dropdownMenu">
+          <li ng-repeat="tags in makerTags" ><a href="#">{{ maker.tags[] }}</a></li>
+        </ul>
+      </div>
     </div>
 
-    <div class="dropdown">
-      <button class="btn btn-link dropdown-toggle" type="button" id="mtm-dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-        Filter by Topics
-        <i class="fa fa-chevron-down" aria-hidden="true"></i>
-      </button>
-      <ul class="dropdown-menu" aria-labelledby="mtm-dropdownMenu">
-        <li><a href="#">Topic 1</a></li>
-        <li><a href="#">Topic 2</a></li>
-        <li><a href="#">Topic 3</a></li>
-      </ul>
-    </div>
-  </div>
+    <div class="mtm-results">
+      <div class="mtm-results-cont">
 
-  <div class="mtm-results">
-    <div class="mtm-results-cont" ng-controller="mtmMakers">
+        <article class="mtm-maker" ng-repeat="maker in makers | filter:makerSearch" style="background-image: url('{{ maker.images[0].src }}')">
+          <h3>{{ maker.title }}</h3>
+          <p>{{ maker.handle | limitTo:20 }}</p>
+        </article>
 
-      <article class="mtm-maker" ng-repeat="maker in makers | filter:makerSearch" style="background-image: url('{{ maker.images[0].src }}')">
-        <h3>{{ maker.title }}</h3>
-        <p>{{ maker.handle | limitTo:20 }}</p>
-      </article>
+        <div class="clearfix"></div>
 
-      <div class="clearfix"></div>
-
+      </div>
     </div>
   </div>
 
