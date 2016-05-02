@@ -47,6 +47,14 @@
 .home-image-carousel-admin .acf-gallery {
   max-height: 200px;
 }
+/* Grey out ACF inactive panels */
+.acfInactive .acf-fc-layout-handle {
+  background-color: #e1e1e1;
+  color: #888 !important;
+}
+.acfInactive .acf-fc-layout-handle:after {
+  content: " - Inactive";
+}
 
 @media (max-width: 535px) {
   .dm-logo-wrap {

@@ -7,7 +7,7 @@
 
     <div class="row">
 
-        <div class="col-md-9">
+        <div class="col-xs-12">
 
             <?php // theloop
             if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
@@ -25,9 +25,6 @@
             <?php endif; ?>
 
         </div>
-
-        <?php //get the right sidebar ?>
-        <?php get_sidebar( 'right' ); ?>
 
     </div>
 

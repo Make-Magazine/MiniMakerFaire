@@ -1,0 +1,94 @@
+#error-page {
+  margin: 50px auto;
+  text-align:center;
+}
+#error-text {
+  float: left;
+  max-width: 300px;
+  text-align: left;
+}
+#error-page h1 {
+  float: right;
+  margin-top:10px;
+  font-size: 108px;
+  line-height: 104px;
+}
+#error-page h2 {
+  font-size: 26px;
+}
+#error-page h3 {
+  margin-bottom: 5px;
+  font-size: 26px;
+  line-height: 25px;
+  font-weight: bold;
+}
+#error-page #p-error2 {
+  font-size: 14px;
+  margin-top: 0px;
+}
+#error-page #p-error {
+  margin-bottom: 0px;
+  font-size: 14px;
+}
+#error-page #error_search_input {
+  float: left;
+  max-width: 340px;
+  height: 32px;
+  margin: 3px 0px 3px 3px;
+  border-right: none !important;
+  border-radius: 4px 0 0 4px !important;
+  font-size: 24px;
+  font-style: italic;
+  padding-left: 5px;
+  line-height: 37px;
+  color: #999;
+}
+#error-page #blue {
+  margin-top: 20px;
+  font-size: 14px;
+  text-align: center!important;
+}
+#error-page #error_display_search {
+  margin-top: 20px;
+}
+#error_display_search #search_form {
+  display: inline-table;
+}
+#error_display_search #search_form input.text {
+  margin: 10px 0 0 0;
+  float:left;
+  max-width: 293px!important;
+}
+#error_display_search #search_form input.submit {
+  float:left;
+  margin-top: 10px;
+}
+@media (max-width: 767px) {
+  #error-page h1 {
+    float: initial;
+  }
+  #error-text {
+    float: inherit;
+    max-width: initial;
+    text-align: center;
+  }
+}
+@media (max-width: 400px) {
+  #error_display_search #search_form {
+    width: 110%;
+  }
+  #error_display_search #search_form input.text {
+    width: 75%;
+  }
+  .cust-cls-100 {
+    width:100% !important;
+  }
+  #error-page h1, .cust-cls-100 #error-text {
+    float: center;
+    max-width: none;
+    text-align: center;
+  }
+  #error-page {
+    margin-top:0px;
+  }
+}

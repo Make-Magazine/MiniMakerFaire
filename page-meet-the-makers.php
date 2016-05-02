@@ -65,7 +65,7 @@ get_template_part('template-part', 'header'); ?>
           <i class="fa fa-chevron-down" aria-hidden="true"></i>
         </button>
         <ul class="dropdown-menu" aria-labelledby="mtm-dropdownMenu">
-          <li ng-repeat="tags in makerTags" ><a href="#">{{ maker.tags[] }}</a></li>
+          <li ng-repeat="maker in makers track by makers.tags | unique:'tags'" ><a href="#">{{ maker.title }}</a></li>
         </ul>
       </div>
     </div>
