@@ -1,7 +1,5 @@
 <?php get_header(); ?>
 
-<?php get_template_part('template-part', 'header'); ?>
-
 <!-- start content container -->
 <div class="row">
 

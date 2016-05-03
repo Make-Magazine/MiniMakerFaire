@@ -19,28 +19,45 @@
               'walker'            => new wp_bootstrap_navwalker())
             );
           endif; ?>
+
           <div class="social-network-container">
             <ul class="social-network social-circle">
-              <li>
-                <a href="#" class="icoFacebook" title="Facebook" target="_blank">
-                  <i class="fa fa-facebook"></i>
-                </a>
-              </li>
-              <li>
-                <a href="#" class="icoTwitter" title="Twitter" target="_blank">
-                  <i class="fa fa-twitter" target="_blank"></i>
-                </a>
-              </li>
-              <li>
-                <a href="#" class="icoPinterest" title="Pinterest" target="_blank">
-                  <i class="fa fa-pinterest-p" target="_blank"></i>
-                </a>
-              </li>
-              <li>
-                <a href="#" class="icoGoogle-plus" title="Google+" target="_blank">
-                  <i class="fa fa-google-plus" target="_blank"></i>
-                </a>
-              </li>
+
+              <?php $facebook_link = esc_url( get_theme_mod( 'facebook_link' ) );
+              if( $facebook_link != '' ) {
+                echo '<li>
+                        <a href="' . $facebook_link . '" class="icoFacebook" title="Facebook" target="_blank">
+                          <i class="fa fa-facebook"></i>
+                        </a>
+                      </li>';
+              }
+
+              $twitter_link = esc_url( get_theme_mod( 'twitter_link' ) );
+              if( $twitter_link != '' ) {
+                echo '<li>
+                        <a href="' . $twitter_link . '" class="icoTwitter" title="Twitter" target="_blank">
+                          <i class="fa fa-twitter"></i>
+                        </a>
+                      </li>';
+              }
+
+              $pintrest_link = esc_url( get_theme_mod( 'pintrest_link' ) );
+              if( $pintrest_link != '' ) {
+                echo '<li>
+                        <a href="' . $pintrest_link . '" class="icoPinterest" title="Pinterest" target="_blank">
+                          <i class="fa fa-pinterest-p"></i>
+                        </a>
+                      </li>';
+              }
+
+              $google_plus_link = esc_url( get_theme_mod( 'google_plus_link' ) );
+              if( $google_plus_link != '' ) {
+                echo '<li>
+                        <a href="' . $google_plus_link . '" class="icoGoogle-plus" title="Google+" target="_blank">
+                          <i class="fa fa-google-plus"></i>
+                        </a>
+                      </li>';
+              } ?>
             </ul>
           </div>
         </div>

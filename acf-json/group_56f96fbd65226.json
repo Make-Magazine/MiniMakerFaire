@@ -318,6 +318,28 @@
                             },
                             "default_value": "",
                             "placeholder": ""
+                        },
+                        {
+                            "key": "field_5727eedc044ee",
+                            "label": "Background Color",
+                            "name": "background_color",
+                            "type": "radio",
+                            "instructions": "Background color of this panel. Choose blue or red.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "Blue": "Blue",
+                                "Red": "Red"
+                            },
+                            "other_choice": 0,
+                            "save_other_choice": 0,
+                            "default_value": "Blue",
+                            "layout": "horizontal"
                         }
                     ],
                     "min": "",
@@ -409,7 +431,7 @@
                             "label": "Active\/Inactive",
                             "name": "show_what_is_maker_faire",
                             "type": "radio",
-                            "instructions": "This ads an uneditable text panel with information about Maker Faires. ",
+                            "instructions": "This adds an uneditable text panel with information about Maker Faires. ",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -622,5 +644,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1462233731
+    "modified": 1462234989
 }

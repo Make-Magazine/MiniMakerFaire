@@ -1,10 +1,4 @@
-<?php
-/*
-* Template name: Home Page
-*/
-get_header();
-
-get_template_part('template-part', 'header-home');
+<?php get_header();
 
   // Get the home page ID
   if ( FALSE === get_post_status( 22 ) ) {
@@ -102,11 +96,17 @@ get_template_part('template-part', 'header-home');
 
         $makers_to_show = get_sub_field('makers_to_show');
         $more_makers_button = get_sub_field('more_makers_button');
+        $background_color = get_sub_field('background_color');
 
         $activeinactive = get_sub_field('activeinactive');
         if( $activeinactive == 'Active' ):
 
-          echo '<section class="featured-maker-panel"><div class="container">';
+          echo '<section class="featured-maker-panel" ';
+          if( $background_color == "Red" ): 
+            echo 'style="background: -webkit-linear-gradient(left,#930d14,#B52A31,#930d14);background: linear-gradient(to right,#930d14,#B52A31,#930d14);"';
+          endif;
+          echo '  >
+                  <div class="container">';
           if(get_sub_field('title')){
             echo '<div class="row text-center">
                     <div class="title-w-border-y">

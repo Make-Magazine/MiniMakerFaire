@@ -2,9 +2,7 @@
 /*
 * Template name: Blank Page
 */
-get_header();
-
-get_template_part('template-part', 'header'); ?>
+get_header(); ?>
 
 <!-- start content container -->
 <div class="container">

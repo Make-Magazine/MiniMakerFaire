@@ -2,9 +2,7 @@
 /*
 * Template name: Meet the Makers
 */
-get_header();
-
-get_template_part('template-part', 'header'); ?>
+get_header(); ?>
 
 <script type="text/javascript" src="<?php echo get_bloginfo('template_directory');?>/js/owl.carousel.min.js"></script>
 <!-- script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script-->

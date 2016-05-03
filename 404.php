@@ -1,7 +1,5 @@
 <?php get_header(); ?>
 
-<?php get_template_part('template-part', 'header'); ?>
-
 <div id="error-page" class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-6 cust-cls-100">

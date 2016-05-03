@@ -2,11 +2,7 @@
 /*
 * Template name: Sponsors Page
 */
-get_header();
-
-get_template_part('template-part', 'header');
-
-?>
+get_header(); ?>
 
 <div class="container sponsors-landing">
 
