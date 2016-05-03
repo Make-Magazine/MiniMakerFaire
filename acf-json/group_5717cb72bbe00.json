@@ -1,0 +1,140 @@
+{
+    "key": "group_5717cb72bbe00",
+    "title": "Home page Image Carousel",
+    "fields": [
+        {
+            "key": "field_5717cbc5ab83c",
+            "label": "Faire Location",
+            "name": "faire_location",
+            "type": "text",
+            "instructions": "Enter the faire location here in this format: \"Schurz High School, Chicago, IL\". 40 character limit.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": 50,
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": 40,
+            "readonly": 0,
+            "disabled": 0
+        },
+        {
+            "key": "field_5717d315ab83d",
+            "label": "Faire Date",
+            "name": "faire_date",
+            "type": "text",
+            "instructions": "Enter the faire date here in this format: \"Saturday, May 7, 2016\" or \"Sat - Sun, May 7 & 8, 2016\". 30 character limit.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": 50,
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": 30,
+            "readonly": 0,
+            "disabled": 0
+        },
+        {
+            "key": "field_5717d3a5ab83e",
+            "label": "Call to Action Text",
+            "name": "call_to_action_text",
+            "type": "text",
+            "instructions": "Optional call to action title that will show below the logo. i.e. \"Call for Makers is Open!\" or \"Tickets are on Sale Now!\". 30 character limit.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": 50,
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": 30,
+            "readonly": 0,
+            "disabled": 0
+        },
+        {
+            "key": "field_5727a1fa9442b",
+            "label": "Call to Action Text URL",
+            "name": "call_to_action_text_url",
+            "type": "url",
+            "instructions": "Optional - Add a URL here that will link the call to action text field to a URL.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": 50,
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_5717d4a1aa89a",
+            "label": "Image Carousel",
+            "name": "image_carousel",
+            "type": "gallery",
+            "instructions": "Up to 3 images can be added. Images look best when uploaded when sized at 2400px wide by 900px hieght, but the carousel will do its best to fit any size image to fit.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "home-image-carousel-admin",
+                "id": ""
+            },
+            "min": 1,
+            "max": 3,
+            "preview_size": "thumbnail",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "page-home.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "permalink",
+        "the_content",
+        "excerpt",
+        "custom_fields",
+        "discussion",
+        "comments",
+        "slug",
+        "format",
+        "categories",
+        "tags",
+        "send-trackbacks"
+    ],
+    "active": 1,
+    "description": "",
+    "modified": 1462233718
+}

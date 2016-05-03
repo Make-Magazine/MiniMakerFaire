@@ -595,9 +595,9 @@
     "location": [
         [
             {
-                "param": "page",
+                "param": "page_template",
                 "operator": "==",
-                "value": "22"
+                "value": "page-home.php"
             }
         ]
     ],
@@ -622,5 +622,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1462226393
+    "modified": 1462233731
 }

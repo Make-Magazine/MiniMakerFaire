@@ -1,6 +1,10 @@
-<?php get_header(); ?>
+<?php
+/*
+* Template name: Blank Page
+*/
+get_header();
 
-<?php get_template_part('template-part', 'header'); ?>
+get_template_part('template-part', 'header'); ?>
 
 <!-- start content container -->
 <div class="container">
