@@ -1,4 +1,9 @@
-<?php get_header();
+<?php
+/*
+* Template name: Home Page
+*/
+
+get_header();
 
   // Get the home page ID
   if ( FALSE === get_post_status( 22 ) ) {
