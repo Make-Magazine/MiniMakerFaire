@@ -35,7 +35,6 @@
 
                                 <?php if ( has_post_thumbnail() ) : ?>
                                     <?php the_post_thumbnail(); ?>
-                                    <div class="clear"></div>
                                 <?php endif; ?>
                                 <?php the_content(); ?>
                                 <?php wp_link_pages(); ?>

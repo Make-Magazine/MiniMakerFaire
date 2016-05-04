@@ -123,13 +123,11 @@ embed {
 }
 
 /* Sticky Post */
-
 .sticky {
   padding: 20px 20px 20px 20px;
 }
 
 /* Comments */
-
 .comment-form-comment #comment {
   width: 100%;
 }
@@ -154,14 +152,17 @@ embed {
 
 
 /* Post Thumbnail */
-
 .attachment-post-thumbnail {
   float: left;
   margin: 0px 10px;
 }
+.attachment-post-thumbnail,
+.wp-post-image {
+  max-width: 100%;
+  height: auto;
+}
 
 /* Search Form Widget */
-
 #searchform #searchsubmit:extend(.btn,.btn-info all) {
  margin-top: 5px;
 }

@@ -189,7 +189,7 @@ get_header();
             echo '<div class="recent-post-post col-xs-12 col-sm-3">
                     <article class="recent-post-inner">
                       <a href="' . get_permalink($recent["ID"]) . '">';
-                      if ( has_post_thumbnail() ) {
+                      if ( get_the_post_thumbnail($recent['ID']) != '' ) {
                         $thumb_id = get_post_thumbnail_id($recent['ID']);
                         $url = wp_get_attachment_url($thumb_id);
                         echo "<div class='recent-post-img' style='background-image: url(" . $url . ");'></div>";
