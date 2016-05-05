@@ -117,6 +117,9 @@ body.slide-active {
   margin-left: 20px;
   display: inline-block;
   align-self: center;
+  @media (min-width:768px) and (max-width:991px) {
+    margin-left: 0;
+  }
   @media (max-width:767px) {
     display: none;
   }
@@ -140,9 +143,13 @@ body.slide-active {
       max-height: 50px;
       max-width: 160px;
     }
+    @media (min-width:768px) and (max-width:991px) {
+      margin-right: 0;
+    }
     @media (max-width:767px) {
       display: none;
     }
+
   }
 }
 
