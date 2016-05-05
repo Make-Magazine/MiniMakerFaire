@@ -109,10 +109,10 @@
           font-weight: 500;
           font-size: inherit;
           img {
-            height: 50px;
+            height: 40px;
             display: inline-block;
             @media (min-width:768px) and (max-width:991px) {
-              height: 40px;
+              height: 30px;
             }
           }
         }
@@ -209,6 +209,23 @@
           &:first-child {
             padding-left: 0;
           }
+          .quick-view-toggle {
+            font-size: 12px;
+          }
+        }
+      }
+      tr.quick-view-tr {
+        display: none;
+        td.table-no-border {
+          border-top: none;
+          p {
+            @media (min-width:992px) {
+              width: 80%;
+            }
+          }
+          a {
+            font-size: 12px;
+          }
         }
       }
     }
@@ -259,7 +276,7 @@
     .schedule-col-5 {
       width: 12%;
       img {
-        width: 70px;
+        width: 50px;
       }
     }
     .schedule-col-6 {

@@ -20,7 +20,7 @@ get_header(); ?>
             <div class="row">
 
               <div class="col-sm-4">
-                <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( array(400,420) ); ?></a>
+                <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( array(400,420), array( 'class' => 'img-responsive' ) ); ?></a>
               </div>
 
               <div class="col-sm-8">

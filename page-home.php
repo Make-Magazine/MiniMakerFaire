@@ -257,6 +257,46 @@ get_header();
 
 
 
+
+      // 1 COLUMN LAYOUT
+      elseif( get_row_layout() == '1_column' ): 
+
+        $activeinactive = get_sub_field('activeinactive');
+        if( $activeinactive == 'Active' ):
+
+          $column_1 = get_sub_field('column_1');
+          $cta_button = get_sub_field('cta_button');
+          $cta_button_url = get_sub_field('cta_button_url');
+          echo '<section class="content-panel">
+                  <div class="container">';
+
+          if(get_sub_field('title')){
+            echo '  <div class="row">
+                      <div class="col-xs-12 text-center padbottom">
+                        <h2>' . get_sub_field('title') . '</h2>
+                      </div>
+                    </div>';
+          }
+
+          echo '    <div class="row">
+                      <div class="col-xs-12">' . $column_1 . '</div>
+                    </div>';
+
+          if(get_sub_field('cta_button')){
+            echo '  <div class="row text-center padtop">
+                      <a class="btn btn-b-ghost" href="' . $cta_button_url . '">' . $cta_button . '</a>
+                    </div>';
+          }
+
+          echo '  </div>
+                  <div class="flag-banner"></div>
+                </section>';
+
+        endif;
+
+
+
+
       // WHAT IS MAKER FAIRE PANEL
       elseif( get_row_layout() == 'what_is_maker_faire' ):
 
