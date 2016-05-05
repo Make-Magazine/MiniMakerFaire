@@ -20,17 +20,17 @@
             "max": "",
             "layouts": [
                 {
-                    "key": "56fc69d21b9e7",
-                    "name": "2_column_photo_and_text_panel",
-                    "label": "2 Columns",
-                    "display": "block",
+                    "key": "57196b4f7c508",
+                    "name": "what_is_maker_faire",
+                    "label": "What is Maker Faire",
+                    "display": "row",
                     "sub_fields": [
                         {
-                            "key": "field_5727a8251b207",
+                            "key": "field_57196b4f7c509",
                             "label": "Active\/Inactive",
-                            "name": "activeinactive",
+                            "name": "show_what_is_maker_faire",
                             "type": "radio",
-                            "instructions": "Activate or Inactivate this panel",
+                            "instructions": "This adds an uneditable text panel with information about Maker Faires. ",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -39,107 +39,13 @@
                                 "id": ""
                             },
                             "choices": {
-                                "Active": "Active",
-                                "Inactive": "Inactive"
+                                "show": "Active",
+                                "hide": "Inactive"
                             },
                             "other_choice": 0,
                             "save_other_choice": 0,
-                            "default_value": "Active",
+                            "default_value": "show",
                             "layout": "horizontal"
-                        },
-                        {
-                            "key": "field_5707044778278",
-                            "label": "Title",
-                            "name": "title",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": "",
-                            "readonly": 0,
-                            "disabled": 0
-                        },
-                        {
-                            "key": "field_56fc6a5b7d756",
-                            "label": "Column 1",
-                            "name": "column_1",
-                            "type": "wysiwyg",
-                            "instructions": "Use the editor to style this text block however you like.",
-                            "required": 1,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": 50,
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "tabs": "all",
-                            "toolbar": "full",
-                            "media_upload": 1
-                        },
-                        {
-                            "key": "field_56fc6dfc7d757",
-                            "label": "Column 2",
-                            "name": "column_2",
-                            "type": "wysiwyg",
-                            "instructions": "Use the editor to style this text block however you like.",
-                            "required": 1,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": 50,
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "tabs": "all",
-                            "toolbar": "full",
-                            "media_upload": 1
-                        },
-                        {
-                            "key": "field_571e908c47dbe",
-                            "label": "CTA Button Text",
-                            "name": "cta_button",
-                            "type": "text",
-                            "instructions": "Optional Call To Action button to add underneath the 2 column content. i.e. \"Learn More\" or \"Buy Now\". Centered under both columns. Leave blank to hide.",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": "",
-                            "readonly": 0,
-                            "disabled": 0
-                        },
-                        {
-                            "key": "field_571e915447dbf",
-                            "label": "CTA Button URL",
-                            "name": "cta_button_url",
-                            "type": "url",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": ""
                         }
                     ],
                     "min": "",
@@ -421,38 +327,6 @@
                     "max": ""
                 },
                 {
-                    "key": "57196b4f7c508",
-                    "name": "what_is_maker_faire",
-                    "label": "What is Maker Faire",
-                    "display": "row",
-                    "sub_fields": [
-                        {
-                            "key": "field_57196b4f7c509",
-                            "label": "Active\/Inactive",
-                            "name": "show_what_is_maker_faire",
-                            "type": "radio",
-                            "instructions": "This adds an uneditable text panel with information about Maker Faires. ",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "activeinactive",
-                                "id": ""
-                            },
-                            "choices": {
-                                "show": "Active",
-                                "hide": "Inactive"
-                            },
-                            "other_choice": 0,
-                            "save_other_choice": 0,
-                            "default_value": "show",
-                            "layout": "horizontal"
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
-                },
-                {
                     "key": "571518b722ba0",
                     "name": "sponsors_panel",
                     "label": "Sponsors",
@@ -610,6 +484,240 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                {
+                    "key": "572bad2b2d757",
+                    "name": "1_column",
+                    "label": "1 Column",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_572bad2b2d758",
+                            "label": "Active\/Inactive",
+                            "name": "activeinactive",
+                            "type": "radio",
+                            "instructions": "Activate or Inactivate this panel",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "activeinactive",
+                                "id": ""
+                            },
+                            "choices": {
+                                "Active": "Active",
+                                "Inactive": "Inactive"
+                            },
+                            "other_choice": 0,
+                            "save_other_choice": 0,
+                            "default_value": "Active",
+                            "layout": "horizontal"
+                        },
+                        {
+                            "key": "field_572bad2b2d759",
+                            "label": "Title",
+                            "name": "title",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": "",
+                            "readonly": 0,
+                            "disabled": 0
+                        },
+                        {
+                            "key": "field_572bad2b2d75a",
+                            "label": "Column 1",
+                            "name": "column_1",
+                            "type": "wysiwyg",
+                            "instructions": "Use the editor to style this text block however you like.",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": 100,
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 1
+                        },
+                        {
+                            "key": "field_572bad2b2d75c",
+                            "label": "CTA Button Text",
+                            "name": "cta_button",
+                            "type": "text",
+                            "instructions": "Optional Call To Action button to add underneath the 2 column content. i.e. \"Learn More\" or \"Buy Now\". Centered under both columns. Leave blank to hide.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": "",
+                            "readonly": 0,
+                            "disabled": 0
+                        },
+                        {
+                            "key": "field_572bad2b2d75d",
+                            "label": "CTA Button URL",
+                            "name": "cta_button_url",
+                            "type": "url",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                {
+                    "key": "56fc69d21b9e7",
+                    "name": "2_column_photo_and_text_panel",
+                    "label": "2 Columns",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5727a8251b207",
+                            "label": "Active\/Inactive",
+                            "name": "activeinactive",
+                            "type": "radio",
+                            "instructions": "Activate or Inactivate this panel",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "activeinactive",
+                                "id": ""
+                            },
+                            "choices": {
+                                "Active": "Active",
+                                "Inactive": "Inactive"
+                            },
+                            "other_choice": 0,
+                            "save_other_choice": 0,
+                            "default_value": "Active",
+                            "layout": "horizontal"
+                        },
+                        {
+                            "key": "field_5707044778278",
+                            "label": "Title",
+                            "name": "title",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": "",
+                            "readonly": 0,
+                            "disabled": 0
+                        },
+                        {
+                            "key": "field_56fc6a5b7d756",
+                            "label": "Column 1",
+                            "name": "column_1",
+                            "type": "wysiwyg",
+                            "instructions": "Use the editor to style this text block however you like.",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": 50,
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 1
+                        },
+                        {
+                            "key": "field_56fc6dfc7d757",
+                            "label": "Column 2",
+                            "name": "column_2",
+                            "type": "wysiwyg",
+                            "instructions": "Use the editor to style this text block however you like.",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": 50,
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 1
+                        },
+                        {
+                            "key": "field_571e908c47dbe",
+                            "label": "CTA Button Text",
+                            "name": "cta_button",
+                            "type": "text",
+                            "instructions": "Optional Call To Action button to add underneath the 2 column content. i.e. \"Learn More\" or \"Buy Now\". Centered under both columns. Leave blank to hide.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": "",
+                            "readonly": 0,
+                            "disabled": 0
+                        },
+                        {
+                            "key": "field_571e915447dbf",
+                            "label": "CTA Button URL",
+                            "name": "cta_button_url",
+                            "type": "url",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             ]
         }
@@ -644,5 +752,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1462234989
+    "modified": 1462480939
 }
