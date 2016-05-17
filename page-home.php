@@ -99,13 +99,12 @@ get_header();
       // FEATURED MAKERS
       if( get_row_layout() == 'featured_makers_panel' ):
 
-        $makers_to_show = get_sub_field('makers_to_show');
-        $more_makers_button = get_sub_field('more_makers_button');
-        $background_color = get_sub_field('background_color');
-
         $activeinactive = get_sub_field('activeinactive');
         if( $activeinactive == 'Active' ):
 
+          $makers_to_show = get_sub_field('makers_to_show');
+          $more_makers_button = get_sub_field('more_makers_button');
+          $background_color = get_sub_field('background_color');
           echo '<section class="featured-maker-panel" ';
           if( $background_color == "Red" ): 
             echo 'style="background: -webkit-linear-gradient(left,#930d14,#B52A31,#930d14);background: linear-gradient(to right,#930d14,#B52A31,#930d14);"';
@@ -348,6 +347,106 @@ get_header();
 
 
 
+
+      // IMAGE/CAROUSEL PANEL
+      elseif( get_row_layout() == 'static_or_carousel' ):
+
+        $activeinactive = get_sub_field('activeinactive');
+        if( $activeinactive == 'Active' ):
+
+
+          // check if the nested repeater field has rows of data
+          if( have_rows('images') ):
+
+            echo '<section class="static-or-carousel-panel container">
+                      <div id="carouselPanel" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner" role="listbox">';
+            $i = 0;
+
+            // loop through the rows of data
+            while ( have_rows('images') ) : the_row();
+
+              $text = get_sub_field('text');
+              $url = get_sub_field('url');
+              $image = get_sub_field('image');
+
+              if ($i == 0) { ?>
+                <div class="item active">
+                  <?php if(get_sub_field('url')){ ?>
+                    <a href="<?php echo $url ?>">
+                  <?php } ?>
+                    <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
+                    <?php if (get_sub_field('text')){ ?>
+                      <div class="carousel-caption">
+                        <h3><?php echo $text; ?></h3>
+                      </div>
+                    <?php }
+                  if(get_sub_field('url')){
+                    echo '</a>';
+                  } ?>
+                </div> <?php
+              } else { ?>
+                <div class="item">
+                  <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
+                  <div class="carousel-caption">
+                    <h3><?php echo $text; ?></h3>
+                  </div>
+                </div> <?php
+              }
+              $i++;
+            endwhile; ?>
+
+                        </div>
+
+                      <?php if( $i > 1 ): ?>
+                        <a class="left carousel-control" href="#carouselPanel" role="button" data-slide="prev">
+                          <img class="glyphicon-chevron-right" src="<?php echo get_bloginfo('template_directory');?>/img/arrow_left.png" alt="Image Carousel button left" />
+                          <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#carouselPanel" role="button" data-slide="next">
+                          <img class="glyphicon-chevron-right" src="<?php echo get_bloginfo('template_directory');?>/img/arrow_right.png" alt="Image Carousel button right" />
+                          <span class="sr-only">Next</span>
+                        </a>
+                      <?php endif; ?>
+                      </div><!-- /.carousel -->
+                    </div>
+                  </section> <?php
+
+          endif;
+
+        endif;
+
+
+
+
+
+      // NEWSLETTER PANEL
+      elseif( get_row_layout() == 'newsletter_panel' ):
+
+        $activeinactive = get_sub_field('activeinactive');
+        if( $activeinactive == 'Active' ):
+
+          echo '<section class="newsletter-panel">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-xs-12 col-sm-6">
+                        <p><strong>Stay in Touch:</strong> Get Local and Global Maker Faire Community updates.</p>
+                      </div>
+                      <div class="col-xs-12 col-sm-6">
+                        <form class="form-inline">
+                          <input class="form-control nl-panel-input" name="email" placeholder="Enter your email" type="email" required>
+                          <input class="form-control btn-w-ghost" value="GO" type="submit">
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </section>';
+        endif;
+
+
+
+
+
       // SPONSOR PANEL
       elseif( get_row_layout() == 'sponsors_panel' ): 
 
@@ -500,24 +599,5 @@ get_header();
       </div>
     </div>
   </aside>
-
-
-  <?php // NEWSLETTER PANEL ?>
-  <section class="newsletter-panel">
-    <div class="container">
-
-      <div class="row">
-        <div class="col-xs-12 col-sm-6">
-          <p><strong>Stay in Touch:</strong> Get Global, Local, and Global Maker Faire Community updates.</p>
-        </div>
-        <div class="col-xs-12 col-sm-6">
-          <form class="form-inline">
-            <input class="form-control nl-panel-input" name="email" placeholder="Enter your email" type="email" required>
-            <input class="form-control btn-w-ghost" value="GO" type="submit">
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
 
 <?php get_footer(); ?>
