@@ -176,7 +176,7 @@
     }
   }
   .carousel-inner {
-    min-height: 220px;
+    min-height: 150px;
     // display: flex;
     // flex-direction: column;
     // justify-content: center;
@@ -317,11 +317,15 @@
     }
   }
   .sponsor_panel_bottom {
-    a, a:focus, a:hover {
+    a {
       color: #666;
       @media (max-width: 767px) { 
         display: block;
       }
+    }
+    a:focus, a:hover {
+      color: #333;
+      text-decoration: none;
     }
     span {
       color: #666;

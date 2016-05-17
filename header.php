@@ -32,14 +32,13 @@
         <img class="header-logo" src="<?php header_image(); ?>" alt="<?php bloginfo( 'name' ); ?> logo" />
       </div>
 
-      <?php if(!is_page_template( 'page-home.php' )) : ?>
       <div id="nav-not-home-logo">
         <a href="/">
           <img src="<?php header_image(); ?>" alt="<?php bloginfo( 'name' ); ?> logo" />
         </a>
       </div>
-      <?php endif;
 
+      <?php
       wp_nav_menu( array(
               'theme_location'    => 'main_menu',
               'depth'             => 2,

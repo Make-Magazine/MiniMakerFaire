@@ -298,6 +298,7 @@
       }
       p {
         color: #e6e6e6;
+        font-size: 14px;
         line-height: 22px;
         max-height: 69px; // 3 lines of text
         overflow: hidden;
@@ -316,16 +317,15 @@
 .fom-panel {
   background: linear-gradient(to right, #00A3DA,#00B7E3,#00A3DA);
   padding: 15px 0 20px;
-  .col-sm-4 {
-    margin-bottom: 15px;
-  }
-  img {
-    padding: 25px 25px 0;
-    @media (min-width:992px) and (max-width:1199px) {
-      padding: 15px 15px 0;
-    }
+  .house-ad {
     @media (max-width:991px) {
-      padding: 0;
+      margin-top: 30px;
+    }
+    img {
+      max-width: 300px;
+      max-height: 250px;
+      margin-right: auto;
+      margin-left: auto;
     }
   }
   a:hover {
@@ -345,11 +345,15 @@
   padding: 30px 0;
   background-color: #00597E;
   h3 {
-    font-size: 35px;
+    font-size: 26px;
     color: #fff;
     margin: 0;
     a {
       color: #fff;
+      &:hover {
+        color: #b3cdd9;
+        text-decoration: none;
+      }
     }
   }
 }

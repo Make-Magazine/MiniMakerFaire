@@ -1,8 +1,4 @@
-<?php
-/*
-* Template name: Blank Page
-*/
-get_header(); ?>
+<?php get_header(); ?>
 
 <!-- start content container -->
 <div class="container">
