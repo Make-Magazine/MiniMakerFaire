@@ -72,8 +72,10 @@ get_header(); ?>
       <div class="mtm-results-cont">
 
         <article class="mtm-maker" ng-repeat="maker in makers | filter:makerSearch" style="background-image: url('{{ maker.images[0].src }}')">
-          <h3>{{ maker.title }}</h3>
-          <p>{{ maker.handle | limitTo:20 }}</p>
+          <a href="#">
+            <h3>{{ maker.title }}</h3>
+            <p>{{ maker.handle | limitTo:20 }}</p>
+          </a>
         </article>
 
         <div class="clearfix"></div>
