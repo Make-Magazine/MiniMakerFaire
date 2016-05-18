@@ -171,8 +171,19 @@ embed {
   margin-bottom: 5px;
 }
 
-/* Post text Wrap Fixes */
+/* wp-activate.php over rides */
+#activateform{
+  #submit, #key {
+    width: inherit !important;
+    font-size: inherit !important;
+  }
+  #submit {
+    .btn;
+    .btn-primary;
+  }
+}
 
+/* Post text Wrap Fixes */
 .post {
   -ms-word-wrap: break-word;
   word-wrap: break-word;
