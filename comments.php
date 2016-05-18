@@ -1,6 +1,6 @@
 <?php if ( is_single() || is_page() ) : ?>
-    <div class="clear"></div>
-    <div class="dmbs-comments">
+  <div class="clearfix"></div>
+  <div class="dmbs-comments top15">
     <a name="comments"></a>
     <?php if ( have_comments() && comments_open() ) : ?>
         <h4 id="comments"><?php comments_number(__('Leave a Comment','devdmbootstrap3'), __('One Comment','devdmbootstrap3'), '%' . __(' Comments','devdmbootstrap3') );?></h4>
@@ -16,5 +16,5 @@
            <?php
             endif;
     endif; ?>
-    </div>
+  </div>
 <?php endif; ?>
