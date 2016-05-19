@@ -352,14 +352,16 @@ get_header();
       elseif( get_row_layout() == 'static_or_carousel' ):
 
         $activeinactive = get_sub_field('activeinactive');
+        $width = get_sub_field('width');
         if( $activeinactive == 'Active' ):
 
 
           // check if the nested repeater field has rows of data
           if( have_rows('images') ):
 
-            echo '<section class="static-or-carousel-panel container">
-                      <div id="carouselPanel" class="carousel slide" data-ride="carousel">
+            echo '<section class="static-or-carousel-panel ';
+            if ($width == 'Content Width') { echo 'container">'; } else { echo '">'; }
+            echo     '<div id="carouselPanel" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner" role="listbox">';
             $i = 0;
 

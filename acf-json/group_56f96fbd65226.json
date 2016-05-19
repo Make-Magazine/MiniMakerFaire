@@ -766,7 +766,7 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "",
+                                "width": 50,
                                 "class": "activeinactive",
                                 "id": ""
                             },
@@ -777,7 +777,29 @@
                             "other_choice": 0,
                             "save_other_choice": 0,
                             "default_value": "Active",
-                            "layout": "vertical"
+                            "layout": "horizontal"
+                        },
+                        {
+                            "key": "field_573d09f7c7a5a",
+                            "label": "Width",
+                            "name": "width",
+                            "type": "radio",
+                            "instructions": "Content width or browser width.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": 50,
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "Content Width": "Content Width",
+                                "Browser Width": "Browser Width"
+                            },
+                            "other_choice": 0,
+                            "save_other_choice": 0,
+                            "default_value": "Content Width",
+                            "layout": "horizontal"
                         },
                         {
                             "key": "field_572d9faa52da5",
@@ -898,5 +920,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1463524637
+    "modified": 1463618288
 }

@@ -1,27 +1,17 @@
 .slideshow-panel {
+  position: relative;
   .header-logo-div {
     position: absolute;
-    margin-top: 100px;
+    top: 50%;
+    transform: translateY(-50%);
     left: 0;
     right: 0;
     z-index: 10;
     width: 470px;
     margin-left: auto;
     margin-right: auto;
-    @media(min-width:992px) and (max-width:1199px) {
-      margin-top: 70px;
-    }
-    @media(min-width:768px) and (max-width:991px) {
-      margin-top: 40px;
-    }
     @media (max-width:767px) {
-      margin-top: 20px;
-      margin-top: 8vw;
       width: auto;
-    }
-    @media (max-width:480px) {
-      margin-top: 10px;
-      margin-top: 5vw;
     }
     .header-logo {
       width: 80%;
