@@ -43,7 +43,7 @@ get_header(); ?>
   <div class="mtm-search">
     <form class="form-inline">
       <label for="mtm-search-input">Search:</label>
-      <input ng-model="makerSearch" id="mtm-search-input" class="form-control" placeholder="Looking for a specific Exhibit or Maker?" type="text">
+      <input ng-model="makerSearch.$" id="mtm-search-input" class="form-control" placeholder="Looking for a specific Exhibit or Maker?" type="text">
       <!--input class="form-control btn-w-ghost" value="GO" type="submit"-->
     </form>
   </div>
@@ -62,20 +62,19 @@ get_header(); ?>
           Filter by Topics
           <i class="fa fa-chevron-down" aria-hidden="true"></i>
         </button>
+The category is: {{category}}
         <ul class="dropdown-menu" aria-labelledby="mtm-dropdownMenu">
-          <li ng-repeat="maker in makers track by makers.tags | unique:'tags'" ><a href="#">{{ maker.title }}</a></li>
+          <li ng-repeat="tag in tags | orderBy: tag"> <a ng-click="setTagFilter(tag)">{{ tag }}</a></li>
+
         </ul>
+
       </div>
     </div>
 
     <div class="mtm-results">
       <div class="mtm-results-cont">
-
-        <article class="mtm-maker" ng-repeat="maker in makers | filter:makerSearch" style="background-image: url('{{ maker.images[0].src }}')">
-          <a href="#">
-            <h3>{{ maker.title }}</h3>
-            <p>{{ maker.handle | limitTo:20 }}</p>
-          </a>
+        <article class="mtm-maker" ng-repeat="maker in makers | filter : makerSearch | byCategory:category | limitTo:24" style="background-image: url('{{ maker.large_img_url }}')">
+          <h3>{{ maker.name }}</h3>
         </article>
 
         <div class="clearfix"></div>
