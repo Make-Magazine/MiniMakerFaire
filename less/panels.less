@@ -374,7 +374,7 @@
   }
 }
 
-.static-or-carousel-panel {
+.rectangle_image_carousel {
   @media (max-width:767px) {
     padding-left: 0;
     padding-right: 0;
@@ -407,7 +407,50 @@
   .carousel-inner>.item>img {
     width: 100%;
   }
-
 }
 
+.square_image_carousel {
+  position: relative;
+  .mtm-carousel {
+    .mtm-car-image {
+      height: 500px;
+      width: 800px;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      @media (min-width:992px) and (max-width:1199px) {
+        height: 400px;
+        width: 600px;
+      }
+      @media (min-width:768px) and (max-width:991px) {
+        height: 300px;
+        width: 500px;
+      }
+      @media (max-width:767px) {
+        height: 190px;
+        width: 280px;
+      }
+    }
+    .owl-controls {
+      display: none;
+    }
+  }
+  .carousel-control {
+    z-index: 10;
+    @media (max-width:767px) {
+      z-index: 100;
+      width: 10%;
+    }
+    .glyphicon-chevron-left, 
+    .glyphicon-chevron-right {
+      width: 32px;
+      height: 60px;
+      @media (max-width:767px) {
+        width: 16px;
+        height: 30px;
+      }
+    }
+  }
 
+}
