@@ -348,7 +348,7 @@ get_header();
 
 
 
-      // IMAGE/CAROUSEL PANEL
+      // IMAGE CAROUSEL (RECTANGLE)
       elseif( get_row_layout() == 'static_or_carousel' ):
 
         $activeinactive = get_sub_field('activeinactive');
@@ -359,7 +359,7 @@ get_header();
           // check if the nested repeater field has rows of data
           if( have_rows('images') ):
 
-            echo '<section class="static-or-carousel-panel ';
+            echo '<section class="rectangle_image_carousel ';
             if ($width == 'Content Width') { echo 'container">'; } else { echo '">'; }
             echo     '<div id="carouselPanel" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner" role="listbox">';
@@ -417,6 +417,81 @@ get_header();
           endif;
 
         endif;
+
+
+
+
+
+      // IMAGE CAROUSEL (SQUARE)
+      elseif( get_row_layout() == 'square_image_carousel' ):
+
+        $activeinactive = get_sub_field('activeinactive');
+        if( $activeinactive == 'Active' ):
+
+          if( have_rows('images') ): ?>
+
+            <section class="square_image_carousel">
+
+              <div class="mtm-carousel owl-carousel">
+
+              <?php while ( have_rows('images') ) : the_row();
+
+                $text = get_sub_field('text');
+                $url = get_sub_field('url');
+                $image = get_sub_field('image'); ?>
+
+                <div class="mtm-car-image" style="background: url('<?php echo $image["url"]; ?>') no-repeat center center;background-size: cover;"></div>
+
+              <?php endwhile; ?>
+
+              </div>
+
+              <a id="left-trigger" class="left carousel-control" href="#" role="button" data-slide="prev">
+                <img class="glyphicon-chevron-right" src="<?php echo get_bloginfo('template_directory');?>/img/arrow_left.png" alt="Image Carousel button left" />
+                <span class="sr-only">Previous</span>
+              </a>
+              <a id="right-trigger" class="right carousel-control" href="#" role="button" data-slide="next">
+                <img class="glyphicon-chevron-right" src="<?php echo get_bloginfo('template_directory');?>/img/arrow_right.png" alt="Image Carousel button right" />
+                <span class="sr-only">Next</span>
+              </a>
+              
+              <script>
+              jQuery( document ).ready(function() {
+                // Carousel init
+                jQuery('.mtm-carousel').owlCarousel({
+                  center: true,
+                  autoWidth:true,
+                  items:2,
+                  loop:true,
+                  margin:0,
+                  nav:true,
+                  //navContainer:true,
+                  autoplay:true,
+                  autoplayHoverPause:true,
+                  responsive:{
+                    600:{
+                      items:3
+                    }
+                  }
+                });
+                // Carousel left right
+                jQuery( "#right-trigger" ).click(function( event ) {
+                  event.preventDefault();
+                  jQuery( ".owl-next" ).click();
+                });
+                jQuery( "#left-trigger" ).click(function( event ) {
+                  event.preventDefault();
+                  jQuery( ".owl-prev" ).click();
+                });
+              });
+              </script>
+
+            </section>
+
+          <?php endif;
+
+        endif;
+
 
 
 
