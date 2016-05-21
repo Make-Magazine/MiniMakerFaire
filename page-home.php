@@ -96,7 +96,7 @@ get_header();
 
 
 
-      // FEATURED MAKERS
+      // FEATURED MAKERS (SQUARE)
       if( get_row_layout() == 'featured_makers_panel' ):
 
         $activeinactive = get_sub_field('activeinactive');
@@ -157,6 +157,144 @@ get_header();
           endif;
 
         endif;
+
+
+
+
+
+      // FEATURED MAKERS (CIRCLE)
+      elseif( get_row_layout() == 'featured_makers_panel_circle' ):
+
+        $activeinactive = get_sub_field('activeinactive');
+        if( $activeinactive == 'Active' ):
+
+          $makers_to_show = get_sub_field('makers_to_show');
+          $more_makers_button = get_sub_field('more_makers_button');
+          echo '<section class="featured-maker-panel-circle">
+                  <div class="container">';
+
+          if(get_sub_field('title')){
+            echo '<div class="row padtop text-center">
+                    <img class="robot-head" src="' . get_bloginfo("template_directory") . '/img/news_robot.png" alt="Robot head icon" />
+                    <div class="title-w-border-r">
+                      <h2>' . get_sub_field('title') . '</h2>
+                    </div>
+                  </div>';
+          }
+
+          // check if the nested repeater field has rows of data
+          if( have_rows('featured_makers') ):
+
+            echo '<div class="row padbottom">';
+
+            // loop through the rows of data
+            while ( have_rows('featured_makers') ) : the_row();
+
+              $image = get_sub_field('maker_image');
+              $maker = get_sub_field('maker_name');
+              $decription = get_sub_field('maker_short_description');
+
+              echo '<div class="featured-maker col-xs-6 col-sm-3">
+                      <div class="maker-img" style="background-image: url(' . $image["url"] . ');">
+                      </div>
+                      <div class="maker-panel-text">
+                        <h4>' . $maker . '</h4>
+                        <p class="hidden-xs">' . $decription . '</p>
+                      </div>
+                    </div>';
+
+            endwhile;
+
+            echo '</div>';
+
+            if(get_sub_field('more_makers_button')){
+              echo '<div class="row padbottom">
+                      <div class="col-xs-12 padbottom text-center">
+                        <a class="btn btn-b-ghost" href="' . $more_makers_button . '">More Makers</a>
+                      </div>
+                    </div>';
+            }
+
+            echo '</div><div class="flag-banner"></div></section>';
+
+          endif;
+
+        endif;
+
+
+
+
+
+
+      // FEATURED EVENTS
+      elseif( get_row_layout() == 'featured_events' ):
+
+        $activeinactive = get_sub_field('activeinactive');
+        if( $activeinactive == 'Active' ):
+
+          $more_makers_button = get_sub_field('more_makers_button');
+          echo '<section class="featured-events-panel">
+                  <div class="container">';
+
+          if(get_sub_field('title')){
+            echo '<div class="row padtop text-center">
+                    <div class="title-w-border-r">
+                      <h2>' . get_sub_field('title') . '</h2>
+                    </div>
+                  </div>';
+          }
+
+          // check if the nested repeater field has rows of data
+          if( have_rows('featured_events') ):
+
+            echo '<div class="row padbottom">';
+
+            // loop through the rows of data
+            while ( have_rows('featured_events') ) : the_row();
+
+              $image = get_sub_field('event_image');
+              $event = get_sub_field('event_name');
+              $decription = get_sub_field('event_short_description');
+              $day = get_sub_field('day');     
+              $time = get_sub_field('time');
+              $location = get_sub_field('location');
+
+              echo '<div class="featured-event col-xs-6">
+                      <div class="col-xs-12 col-sm-4 nopad">
+                        <div class="event-img" style="background-image: url(' . $image["url"] . ');"></div>
+                      </div>
+                      <div class="col-xs-12 col-sm-8">
+                        <div class="event-description">
+                          <p class="event-day">' . $day . '</p>
+                          <h4>' . $event . '</h4>
+                          <p class="event-desc">' . $decription . '</p>
+                        </div>
+                        <div class="event-details">
+                          <p class="event-time">' . $time . '</p>
+                          <p class="event-location">' . $location . '</p>
+                        </div>
+                      </div>
+                    </div>';
+
+            endwhile;
+
+            echo '</div>';
+
+            if(get_sub_field('all_events_button')){
+              echo '<div class="row padbottom">
+                      <div class="col-xs-12 padbottom text-center">
+                        <a class="btn btn-b-ghost" href="' . $all_events_button . '">All Events</a>
+                      </div>
+                    </div>';
+            }
+
+            echo '</div><div class="flag-banner"></div></section>';
+
+          endif;
+
+        endif;
+
+
 
 
 
@@ -359,7 +497,7 @@ get_header();
           // check if the nested repeater field has rows of data
           if( have_rows('images') ):
 
-            echo '<section class="rectangle_image_carousel ';
+            echo '<section class="rectangle-image-carousel ';
             if ($width == 'Content Width') { echo 'container">'; } else { echo '">'; }
             echo     '<div id="carouselPanel" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner" role="listbox">';
@@ -430,7 +568,7 @@ get_header();
 
           if( have_rows('images') ): ?>
 
-            <section class="square_image_carousel">
+            <section class="square-image-carousel">
 
               <div class="mtm-carousel owl-carousel">
 

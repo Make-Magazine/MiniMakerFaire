@@ -133,12 +133,6 @@
   .container {
     padding-bottom: 15px;
   }
-  .robot-head {
-    width: 60px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
   .recent-post-post {
     margin-bottom: 20px;
     &:nth-child(5) {
@@ -297,12 +291,149 @@
   }
 }
 
-.content-panel {
-  padding-top: 20px;
-  .container {
-    padding-bottom: 30px;
+.featured-maker-panel-circle {
+  padding-top: 5px;
+  .featured-maker {
+    padding: 15px;
+    .maker-img {
+      position: relative; // for borders
+      height: 200px;
+      width: 200px;
+      @media (min-width:992px) and (max-width:1199px) {
+        height: 180px;
+        width: 180px;
+      }
+      @media (min-width:768px) and (max-width:991px) {
+        height: 150px;
+        width: 150px;
+      }
+      @media (max-width:767px) {
+        height: 40vw;
+        width: 40vw;
+      }
+      margin-right: auto;
+      margin-left: auto;
+      background-size: cover;
+      background-position: center center;
+      border: 1px solid #999;
+      border-radius: 50%;
+    }
+    .maker-panel-text {
+      height: 126px;
+      margin-top: 15px;
+      @media (max-width:767px) {
+        height: 52px;
+      }
+      h4 {
+        color: #333;
+        text-align: center;
+        font-family: Roboto, "Helvetica Neue", Helvetica, sans-serif;
+        font-size: 22px;
+        font-weight: 300;
+        line-height: 25px;
+        max-height: 68px; // 2 lines of text
+        overflow: hidden;
+        margin-top: 0;
+        margin-bottom: 5px;
+        @media (max-width:767px) {
+          max-height: 71px; // 3 lines
+        }
+      }
+      p {
+        color: #666;
+        text-align: center;
+        font-size: 14px;
+        line-height: 22px;
+        max-height: 69px; // 3 lines of text
+        overflow: hidden;
+      }
+    }
   }
 }
+
+
+.featured-events-panel {
+  padding-top: 5px;
+  .featured-event {
+    margin-bottom: 50px;
+    .event-img {
+      width: 100%;
+      height: 185px;
+      @media (min-width:992px) and (max-width:1199px) {
+        height: 150px;
+        width: 150px;
+      }
+      @media (min-width:768px) and (max-width:991px) {
+        height: 115px;
+        width: 115px;
+      }
+      @media (max-width:767px) {
+        height: 40vw;
+        width: 40vw;
+        margin-left: 0;
+      }
+      margin-right: auto;
+      margin-left: auto;
+      background-size: cover;
+      background-position: center center;
+      border: 2px solid #999;
+    }
+    .event-description {
+      .event-day {
+        font-size: 12px;
+        font-weight: 500;
+        margin-bottom: 1px;
+      }
+      h4 {
+        margin-top: 0;
+        margin-bottom: 5px;
+        font-size: 20px;
+        color: #00AEEF;
+        font-family: Roboto;
+      }
+      .event-desc {
+        font-size: 14px;
+        line-height: 1.4em;
+        @media (max-width:991px) {
+          display: none;
+        }
+      }
+    }
+    .col-sm-8 {
+      position: relative;
+      height: 185px;
+      @media (min-width:992px) and (max-width:1199px) {
+        height: 150px;
+      }
+      @media (min-width:768px) and (max-width:991px) {
+        height: 115px;
+      }
+      @media (max-width:767px) {
+        height: 100px;
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+    .event-details {
+      position: absolute;
+      bottom: 0;
+      p {
+        font-size: 12px;
+        line-height: 1.4em;
+        margin-bottom: 0;
+        text-transform: uppercase;
+        color: #666;
+      }
+      .event-time {
+
+      }
+      .event-location {
+
+      }
+    }
+  }
+}
+
 
 .fom-panel {
   background: linear-gradient(to right, #00A3DA,#00B7E3,#00A3DA);
@@ -374,7 +505,7 @@
   }
 }
 
-.rectangle_image_carousel {
+.rectangle-image-carousel {
   @media (max-width:767px) {
     padding-left: 0;
     padding-right: 0;
@@ -409,7 +540,7 @@
   }
 }
 
-.square_image_carousel {
+.square-image-carousel {
   position: relative;
   .mtm-carousel {
     .mtm-car-image {
@@ -452,5 +583,20 @@
       }
     }
   }
-
 }
+
+// Common elements
+.content-panel {
+  padding-top: 20px;
+  .container {
+    padding-bottom: 30px;
+  }
+}
+.robot-head {
+  width: 60px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
