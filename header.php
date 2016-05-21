@@ -29,12 +29,12 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </a>
-        <img class="header-logo" src="<?php header_image(); ?>" alt="<?php bloginfo( 'name' ); ?> logo" />
+        <img class="header-logo" src="<?php echo get_theme_mod( 'header_logo' ); ?>" alt="<?php bloginfo( 'name' ); ?> logo" />
       </div>
 
       <div id="nav-not-home-logo">
         <a href="/">
-          <img src="<?php header_image(); ?>" alt="<?php bloginfo( 'name' ); ?> logo" />
+          <img src="<?php echo get_theme_mod( 'header_logo' ); ?>" alt="<?php bloginfo( 'name' ); ?> logo" />
         </a>
       </div>
 
