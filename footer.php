@@ -4,7 +4,7 @@
         <div class="col-sm-6 footer-right-border">
           <div class="footer-logo-div">
             <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-              <img class="img-responsive footer-logos" src="<?php header_image(); ?>" alt="<?php bloginfo( 'name' ); ?> logo" />
+              <img class="img-responsive footer-logos" src="<?php echo get_theme_mod( 'header_logo' ); ?>" alt="<?php bloginfo( 'name' ); ?> logo" />
             </a>
           </div>
           <?php
