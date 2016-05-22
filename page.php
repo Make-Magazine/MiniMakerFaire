@@ -6,14 +6,10 @@
   if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
     <div class="container">
-    
-      <h2 class="page-header"><?php the_title() ;?></h2>
 
       <?php the_content(); ?>
 
     </div>
-
-    <div class="clearfix padtop"></div>
 
     <?php
 
