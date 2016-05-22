@@ -173,10 +173,14 @@
         font-size: 18px;
         font-weight: 400;
         line-height: 21px;
-        max-height: 68px; // 2 lines of text
+        max-height: 44px; // 2 lines of text
         overflow: hidden;
+        text-overflow: ellipsis;
         margin-top: 0;
         margin-bottom: 10px;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
         &:hover {
           text-decoration: none;
         }
@@ -200,9 +204,10 @@
       }
     }
     .recent-post-text {
-      padding: 15px 15px 30px;
+      padding: 15px;
       border-radius: 0 0 5px 5px;
       height: 210px;
+      overflow: hidden;
       @media (min-width:992px) and (max-width:1199px) {
         height: 225px;
       }
