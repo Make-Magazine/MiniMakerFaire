@@ -71,7 +71,7 @@ get_header();
           endforeach; ?>
         </div>
 
-        <?php if( $images > 1 ): ?>
+        <?php if( $i > 1 ): ?>
           <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
             <img class="glyphicon-chevron-right" src="<?php echo get_bloginfo('template_directory');?>/img/arrow_left.png" alt="Image Carousel button left" />
             <span class="sr-only">Previous</span>
@@ -567,10 +567,14 @@ get_header();
 
         $activeinactive = get_sub_field('activeinactive');
         if( $activeinactive == 'Active' ):
+          $width = get_sub_field('width');
 
-          if( have_rows('images') ): ?>
+            if( have_rows('images') ):
 
-            <section class="square-image-carousel">
+              echo '<section class="square-image-carousel';
+              if ($width == 'Content Width') { 
+                echo ' container nopad">'; } 
+              else { echo '">'; } ?>
 
               <div class="mtm-carousel owl-carousel">
 

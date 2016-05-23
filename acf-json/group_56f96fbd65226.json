@@ -1339,7 +1339,7 @@
                             "label": "Images",
                             "name": "images",
                             "type": "repeater",
-                            "instructions": "Minimum of 1 image. Max 10 images.",
+                            "instructions": "Minimum of 3 image. Max 10 images.",
                             "required": 1,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -1348,7 +1348,7 @@
                                 "id": ""
                             },
                             "collapsed": "",
-                            "min": 1,
+                            "min": 3,
                             "max": 10,
                             "layout": "table",
                             "button_label": "Add More Image",
@@ -1453,5 +1453,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1463702997
+    "modified": 1464038542
 }

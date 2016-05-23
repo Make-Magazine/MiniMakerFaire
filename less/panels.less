@@ -451,15 +451,18 @@
     @media (max-width:991px) {
       margin-top: 30px;
     }
-    img {
-      max-width: 300px;
-      max-height: 250px;
-      margin-right: auto;
-      margin-left: auto;
-    }
   }
   a:hover {
     text-decoration: none;
+  }
+  img {
+    max-width: 300px;
+    max-height: 250px;
+    margin-right: auto;
+    margin-left: auto;
+    @media (max-width:767px) {
+      max-width: 100%;
+    }
   }
   h2 {
     color: #fff;
